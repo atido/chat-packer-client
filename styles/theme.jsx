@@ -2,6 +2,17 @@ import { extendTheme } from "@chakra-ui/react";
 import Textarea from "./textarea.theme";
 import Thread from "./thread.theme";
 
+function hexToRgb(hex) {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+}
+
+const cyan100Rgb = hexToRgb("#C4F1F9");
+
 const theme = extendTheme({
   styles: {
     global: {
@@ -17,14 +28,27 @@ const theme = extendTheme({
   },
   colors: {
     brand: {
-      500: "#f7fafc",
-      // ...
-      600: "#1a202c",
+      500: "6FAAC1",
+      600: "F8FDFF",
     },
+  },
+  fonts :{
+    body: "Lato, sans-serif",
+    heading: "Pacifico, sans-serif",
   },
   components: {
     Textarea,
     Thread,
+    Heading: {
+      baseStyle: {
+        color: "white",
+        margin: {
+          base: "16px auto",
+          md: "80px auto"
+        }
+        
+      }
+    },
     Button: {
       // 1. We can update the base styles
       baseStyle: {
@@ -40,29 +64,33 @@ const theme = extendTheme({
       },
       // 3. We can add a new visual variant
       variants: {
-        "with-shadow": {
-          boxShadow: "0 0 2px 2px #efdfde",
-          bg: "teal.500",
+        "primrary-btn": {
+          border: "none",
+          boxShadow: "none",
+          bg: "cyan.800",
+          color: "white",
           _hover: {
-            color: "white",
-            backgroundColor: "teal.700",
+            backgroundColor: "cyan.700",
           },
         },
-        // 4. We can override existing variants
-        solid: () => ({
-          boxShadow: "0 0 2px 2px #efdfde",
-        }),
-        // 5. We can add responsive variants
-        sm: {
-          bg: "teal.500",
-          fontSize: "md",
+        "secondary-btn": {
+          border: "1px solid",
+          borderColor: "cyan.900",
+          boxShadow: "none",
+          bg: `rgba(${cyan100Rgb.r}, ${cyan100Rgb.g}, ${cyan100Rgb.b}, 0.7)`,
+          color: "cyan.900",
+          _hover: {
+            bg: `rgba(${cyan100Rgb.r}, ${cyan100Rgb.g}, ${cyan100Rgb.b}, 0.9)`,
+            color: "cyan.800",
+            borderColor: "cyan.800"
+          },
         },
       },
-      // 6. We can overwrite defaultProps
+      // 4. We can overwrite defaultProps
       defaultProps: {
         size: "lg", // default is md
         variant: "solid", // default is solid
-        colorScheme: "green", // default is gray
+        colorScheme: "Cyan", // default is gray
       },
     },
   },
