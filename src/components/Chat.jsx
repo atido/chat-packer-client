@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import "./Chat.css";
+import Loader from "./Loader";
 import Thread from "./Thread";
 
 export default function Chat({ conversationFromApi }) {
@@ -10,14 +11,18 @@ export default function Chat({ conversationFromApi }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setConversation([...conversation, { id: crypto.randomUUID(), role: "user", content: message }]);
+    const newConversation = [
+      ...conversation,
+      { id: crypto.randomUUID(), role: "user", content: message },
+    ];
+    setConversation(newConversation);
     setMessage("");
-    sendConversation();
+    sendConversationToChatService(newConversation);
   };
 
-  const sendConversation = async () => {
+  const sendConversationToChatService = async (newConversation) => {
     setIsLoading(true);
-    const conversationForChatService = conversation.map((el) => ({
+    const conversationForChatService = newConversation.map((el) => ({
       role: el.role,
       content: el.content,
     }));
@@ -30,9 +35,8 @@ export default function Chat({ conversationFromApi }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setConversation([
-          ...conversation,
+          ...newConversation,
           {
             content: data.content,
             role: data.role,
@@ -67,9 +71,13 @@ export default function Chat({ conversationFromApi }) {
               placeholder="Send a message"
             />
 
-            <button type="submit" disabled={isLoading}>
-              <Icon icon="fe:paper-plane" color="#406B7D" />
-            </button>
+            {!isLoading ? (
+              <button type="submit">
+                <Icon icon="fe:paper-plane" color="#406B7D" />
+              </button>
+            ) : (
+              <Loader />
+            )}
           </div>
         </form>
       </div>
