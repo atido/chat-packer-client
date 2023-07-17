@@ -1,0 +1,11 @@
+.logo {
+  color: white;
+  margin-inline: auto;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.logo__img {
+  padding-left: 1rem;
+}

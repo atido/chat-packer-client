@@ -1,50 +1,17 @@
-import { Flex, Box, Button, Container, Spinner, Textarea, Heading } from "@chakra-ui/react";
-import { useState } from "react";
-import Thread from "../components/Thread";
-import Logo from "../components/Logo";
+import Chat from "../components/Chat";
+import Header from "../components/Header";
 
 export default function HomePage() {
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [conversation, setConversation] = useState([
-    { isBot: true, message: "Bonjour je suis le bot", id: "1" },
-    { isBot: false, message: "Bonjour Mr le Bot", id: "2" },
-  ]);
+  const conversationFromApi = [{ role: "assistant", content: "Hello I am a chat bot", id: "1" }];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(message);
-    setMessage("");
-  };
   return (
-    <Flex id="homePage" flexDirection="column" alignItems="center" justifyContent="center" width="100vw" height="100vh" backgroundImage="url(public/desktopBg.png)" backgroundSize="cover" backgroundPosition="center">
-      <Flex align="center" justifyContent="center">
-        <Heading paddingRight={4}>Chat Packer</Heading>
-        <Logo/>
-      </Flex>
-        <Container maxW="3xl" marginTop="auto" marginBottom="80px">
-        <Box id="chat-container">
-          {conversation?.map((el) => (
-            <Thread key={el.id} message={el.message} isBot={el.isBot} id={el.id} />
-          ))}
-          {loading && <Spinner />}
-        </Box>
-        <form onSubmit={handleSubmit}>
-          <Box display="flex" alignItems="center" w="100%" p={4} borderWidth="1px" borderRadius="md">
-            <Textarea
-              value={message}
-              placeholder="Send a message"
-              onChange={(e) => setMessage(e.target.value)}
-              resize="none"
-              size="minimum"
-              variant="no-border"
-            />
-            <Button size="xs" type="submit" variant="secondary-btn">
-              Submit
-            </Button>
-          </Box>
-        </form>
-      </Container>
-    </Flex>
+    <section className="homepage">
+      <div className="container">
+        <Header />
+        <main className="main">
+          <Chat conversationFromApi={conversationFromApi} />
+        </main>
+      </div>
+    </section>
   );
 }

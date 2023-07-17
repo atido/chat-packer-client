@@ -1,17 +1,14 @@
-import { Box, useStyleConfig } from "@chakra-ui/react";
+import "./Thread.css";
 
-export default function Thread({ id, isBot, message }) {
-  const styles = useStyleConfig("Thread", { variant: isBot ? "bot" : "user" });
+export default function Thread({ id, message, isAssistant }) {
   return (
-    <Box __css={styles}>
-      <Box display="flex" p={4}>
-        <div className="profile">
-          <img src={`${isBot ? "public/avatarBot.png" : "user"}`} alt={`${isBot ? "bot" : "user"}`} />
-        </div>
-        <div className="message" id={id}>
-          {message}
-        </div>
-      </Box>
-    </Box>
+    <div className={`thread ${isAssistant ? "thread--assistant" : "thread--user"}`}>
+      {isAssistant && (
+        <img className="thread__avatar" src="avatar-assistant.png" alt="assistant avatar" />
+      )}
+      <div className="thread__message" id={id}>
+        {message}
+      </div>
+    </div>
   );
 }

@@ -1,9 +1,10 @@
-import { Image, useBreakpointValue } from '@chakra-ui/react';
+import "./logo.css";
 
-const Logo = () => {
-    const logoSize = useBreakpointValue({ base: '20px', md: '30px', lg: '40px' });
-  
-    return <Image src="public/logo.svg" boxSize={logoSize} />;
+export default function Logo() {
+  return (
+    <h1 className="logo">
+      Chat Packer
+      <img className="logo__img" src="/logo.svg" alt="logo" />
+    </h1>
+  );
 }
-
-export default Logo;
