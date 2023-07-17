@@ -9,8 +9,15 @@ export default function Chat({ conversationFromApi }) {
   const [conversation, setConversation] = useState(conversationFromApi);
   const [isLoading, setIsLoading] = useState(false);
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSubmit();
+    }
+  };
+
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     const newConversation = [
       ...conversation,
       { id: crypto.randomUUID(), role: "user", content: message },
@@ -64,6 +71,7 @@ export default function Chat({ conversationFromApi }) {
               className="chat__message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={handleKeyDown}
               name="message"
               id="message"
               cols="1"
