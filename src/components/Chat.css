@@ -1,6 +1,9 @@
 .chat__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
   max-width: 37rem;
-  width: 100%;
+  height: 73vh;
   margin-inline: auto;
 }
 .chat__messageZone {
