@@ -20,6 +20,7 @@
   background: transparent;
   width: 100%;
   font-family: "Lato", sans-serif;
+  outline: none;
 }
 .chat__container svg {
   width: 2rem;
