@@ -81,7 +81,7 @@ export default function Chat({ conversationFromApi }) {
 
             {!isLoading ? (
               <button type="submit">
-                <Icon icon="fe:paper-plane" color="#406B7D" />
+                <Icon className="chat__submit" icon="fe:paper-plane" />
               </button>
             ) : (
               <Loader />

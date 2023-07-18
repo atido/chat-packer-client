@@ -1,8 +1,7 @@
 .thread {
   display: flex;
   align-items: center;
-  margin-block: 1.5rem;
-  margin-top: auto;
+  margin-block: 1rem;
 }
 .thread--user {
   justify-content: end;
@@ -25,13 +24,11 @@
   background-color: rgba(206, 163, 100, 0.85);
   margin-right: 1rem;
   color: white;
-
 }
 .thread__message {
   box-shadow: 0px 2px 4px 0px rgba(31, 57, 55, 0.26);
   backdrop-filter: blur(2px);
   padding: 1rem;
-  margin-top: auto;
 }
 
 .thread__avatar {

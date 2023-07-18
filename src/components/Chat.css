@@ -1,9 +1,9 @@
 .chat__container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   max-width: 37rem;
-  height: 73vh;
+  height: 70vh;
   margin-inline: auto;
 }
 .chat__messageZone {
@@ -25,7 +25,8 @@
   font-family: "Lato", sans-serif;
   outline: none;
 }
-.chat__container svg {
+.chat__container .chat__submit {
   width: 2rem;
   height: 2em;
+  color: var(--primary-color);
 }
