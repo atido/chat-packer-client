@@ -1,17 +1,12 @@
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
   position: relative;
-  padding-top: 60px;
+  padding-block: 3rem;
 }
 
-.btn-group {
+.header .btn-group {
   position: absolute;
   right: 0;
-  padding-right: 1rem;
-}
-
-.btn {
-  margin-right: 1rem;
 }

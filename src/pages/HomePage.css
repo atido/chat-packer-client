@@ -1,0 +1,11 @@
+.homepage {
+  height: 100vh;
+  overflow-y: auto;
+  background: url("/desktop-bg.png") center/cover;
+}
+
+.homepage .main {
+  display: grid;
+  place-content: center;
+  grid-template-columns: 1fr;
+}
