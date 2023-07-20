@@ -1,0 +1,25 @@
+.label--editForm {
+    color: #16242B;
+    font-family: Lato;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    min-width: 60vw ;
+}
+@media (min-width: 1280px) {
+    .label--editForm {
+        color: #16242B;
+        font-family: Lato;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        min-width: 25vw ;
+    }
+}
+
+
+.input--editForm {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #6FAAC1;
+    background: var(--white, #FFF);
+}
