@@ -1,7 +1,6 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import "./Chat.css";
-import "./Card.css";
 
 import Loader from "./Loader";
 import Thread from "./Thread";
@@ -90,20 +89,6 @@ export default function Chat({ conversationFromApi }) {
             )}
           </div>
         </form>
-        <div className="card">
-          <div className="flighCardTop">
-            <div className="cardHeadingWhite">
-              <div>BEST</div>
-              <div>$1147</div>
-            </div>
-          </div>
-          <div className="flighCardBottom">
-            <div className="cardHeadingBlack">
-              <h4>Paris-Buenos Aires</h4>
-            </div>
-          </div>
-
-        </div>
       </div>
     </div>
   );
