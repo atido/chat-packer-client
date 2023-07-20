@@ -1,14 +1,26 @@
 import { Icon } from "@iconify/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import "./Card.css";
 import "./Chat.css";
 
 import Loader from "./Loader";
 import Thread from "./Thread";
 
-export default function Chat({ conversationFromApi }) {
+export default function Chat() {
   const [message, setMessage] = useState("");
-  const [conversation, setConversation] = useState(conversationFromApi);
+  const [conversation, setConversation] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    initConversation();
+  }, []);
+
+  const initConversation = async () => {
+    await fetch(`${import.meta.env.VITE_BACKEND_HOST}/api/chat`)
+      .then((response) => response.json())
+      .then((json) => setConversation(json))
+      .catch((err) => console.log(err));
+  };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -25,16 +37,16 @@ export default function Chat({ conversationFromApi }) {
     ];
     setConversation(newConversation);
     setMessage("");
-    sendConversationToChatService(newConversation);
+    sendConversation(newConversation);
   };
 
-  const sendConversationToChatService = async (newConversation) => {
+  const sendConversation = async (newConversation) => {
     setIsLoading(true);
     const conversationForChatService = newConversation.map((el) => ({
       role: el.role,
       content: el.content,
     }));
-    await fetch("http://localhost:5005/api/chat", {
+    await fetch(`${import.meta.env.VITE_BACKEND_HOST}/api/chat`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +64,8 @@ export default function Chat({ conversationFromApi }) {
           },
         ]);
         setIsLoading(false);
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

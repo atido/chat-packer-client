@@ -10,7 +10,7 @@ export default function HomePage() {
       <div className="container">
         <Header />
         <main className="main">
-          <Chat conversationFromApi={conversationFromApi} />
+          <Chat />
         </main>
       </div>
     </section>
