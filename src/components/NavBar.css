@@ -1,0 +1,12 @@
+.navBar {
+    width: 100vw;
+    height: 46px;
+    display: flex;
+    justify-content: space-between;
+    background: var(--navBar-color);
+}
+
+.avatar--user {
+    height: fit-content;
+    margin: 8px;
+}

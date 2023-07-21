@@ -19,8 +19,8 @@ export default function SignupPage() {
         <button className="btn btn--primary" type="submit">
           Sign up
         </button>
-        <span className="text--sm">Already have account? </span>
-        <span className="hyperlink--sm">Login</span>
+        <span className="text--sm, text--SignupLogin">Already have account? </span>
+        <span className="hyperlink--sm"> Login</span>
       </form>
     </div>
   );
