@@ -22,7 +22,7 @@ export default function FlightCard () {
                   <div >21:35</div>
                   <h6>EZE</h6>
                 </div>
-                <img src="" alt="" />
+                <img src="" alt="af" />
               </div>
               <div className="flightTicket--row">
                 <div className="flightTicket--Info">
@@ -34,7 +34,7 @@ export default function FlightCard () {
                   <div >17:55</div>
                   <h6>CDG</h6>
                 </div>
-                <img src="" alt="" />
+                <img src="" alt="af" />
               </div>
             </div>
           </div>

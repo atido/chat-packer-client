@@ -1,45 +1,41 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../globals.css"
 import "./SignupLoginPage.css";
 import axios from "axios";
 
-export default function SignupPage(props) {
-  const [username, setUsername] = useState("")
+export default function LoginPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [errorMessage, setErrorMessage] = useState("")
+  const [errorMessage, setErrorMessage] = useState(undefined)
 
   const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleLoginSubmit = (e) => {
+    e.preventDefaut()
 
-
-    const requestBody = { username, email, password }
+    const requestBody = {email, password}
 
     axios
     .post(`${import.meta.env.VITE_BACKEND_HOST}/api/users`, requestBody)
     .then((response) => {
-      console.log(response)
-      setUsername("")
-      setEmail("")
-      setPassword("")
+      console.log('JWT token', response.data.authToken)
 
-      navigate("/auth/login")
+            storeToken(response.data.authToken)
+
+            authenticateUser()
+            navigate(`/profile`)
     })
-    .catch((error) => setErrorMessage(error.response.data.errorMessage))
+    .catch((error) => {
+      console.log(error)
+  })
   }
 
   return (
     <div className="signupLoginDisplay">
       <div className="container--SignupLogin">
         {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <form onSubmit={handleSubmit} className="form--editForm">
-          <label className="label--editForm">
-            Username
-            <input className="input--editForm" type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-          </label>
+        <form onSubmit={handleLoginSubmit} className="form--editForm">
           <label className="label--editForm">
             Email
             <input className="input--editForm" type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -49,10 +45,10 @@ export default function SignupPage(props) {
             <input className="input--editForm" type="text" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </label>
           <button className="btn btn--primary" type="submit">
-            Sign up
+            Login
           </button>
-          <span className="text--sm, text--SignupLogin">Already have account? </span>
-          <span className="hyperlink--sm"> Login</span>
+          <span className="text--sm, text--SignupLogin">No account yet? </span>
+          <span className="hyperlink--sm"> Sign up</span>
         </form>
       </div>
     </div>

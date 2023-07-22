@@ -1,4 +1,25 @@
 
+.signupLoginDisplay {
+  height: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url("/desktop-bg.png") center/cover;
+}
+
+.container--SignupLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  margin: auto 16px;
+  border-radius: 12px;
+  background: rgba(249, 255, 254, 0.5);
+  box-shadow: 0px 2px 4px 0px rgba(31, 57, 55, 0.26);
+  backdrop-filter: blur(2px);
+}
+
 .label--editForm {
     color: #16242b;
     font-family: Lato;
@@ -29,17 +50,15 @@
     background: var(--white, #fff);
   }
   
-  .container--SignupLogin {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 32px;
-    border-radius: 12px;
-    background: rgba(249, 255, 254, 0.5);
-    box-shadow: 0px 2px 4px 0px rgba(31, 57, 55, 0.26);
-    backdrop-filter: blur(2px);
-  }
+  
 
   .text--SignupLogin {
     margin-left: 1rem;
   }
+
+  .error-message {
+    color: #E53E3E;
+    margin-bottom: 1rem;
+  }
+
+  

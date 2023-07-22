@@ -7,8 +7,8 @@ export default function Header(params) {
     <header className="header">
       <h1><Logo /></h1>
       <div className="btn-group">
-        <button className="btn btn--primary">Sign Up</button>
-        <button className="btn btn--secondary">Login</button>
+        <Link to={"/auth/signup"}><button className="btn btn--primary">Sign Up</button></Link>
+        <Link to={"/auth/login"}><button className="btn btn--secondary">Login</button></Link>
       </div>
     </header>
   );
