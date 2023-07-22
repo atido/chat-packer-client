@@ -9,6 +9,7 @@
 
 .thread--assistant {
   justify-content: start;
+  margin-left: 16px;
 }
 
 .thread--user .thread__message {

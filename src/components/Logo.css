@@ -1,10 +1,12 @@
 .logo {
   color: white;
+  font-family: "Pacifico";
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
 .logo__img {
-  padding-left: 1rem;
+  height: 0.7em;
+  padding-left: 0.3em;
 }

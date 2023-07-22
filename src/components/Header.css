@@ -9,4 +9,19 @@
 .header .btn-group {
   position: absolute;
   right: 0;
+  margin: 16px;
+}
+
+@media (max-width: 819px) {
+  .header {
+    flex-direction: column-reverse;
+    padding-block: 1rem;
+
+  }
+
+  .header .btn-group {
+    position: static;
+    margin-left: auto;
+    margin-bottom: 0.3rem;
+  }
 }
