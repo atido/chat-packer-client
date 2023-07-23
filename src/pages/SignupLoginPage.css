@@ -1,14 +1,32 @@
 
 .signupLoginDisplay {
-  height: 100vw;
+  position: relative;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: url("/desktop-bg.png") center/cover;
+  
+}
+
+.heading--SignupLogin {
+  width: 92vw;
+  max-width: 406px;
+  position: absolute;
+  top: 6.5vh;
+  color: white;
+  font-weight: 300;
+
+}
+
+.heading--SignupLogin > h2 {
+  font-weight: 300;
+  margin-bottom: 0.5rem;
 }
 
 .container--SignupLogin {
+  max-width: 406px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,15 +68,13 @@
     background: var(--white, #fff);
   }
   
-  
 
   .text--SignupLogin {
-    margin-left: 1rem;
+    margin-top: 2rem;
+    line-height: 1.5;
   }
 
   .error-message {
     color: #E53E3E;
     margin-bottom: 1rem;
   }
-
-  

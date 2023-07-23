@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../globals.css"
 import "./SignupLoginPage.css";
 import axios from "axios";
@@ -33,6 +33,10 @@ export default function SignupPage(props) {
 
   return (
     <div className="signupLoginDisplay">
+      <div className="heading--SignupLogin">
+        <h2>Sign up to your next delightful journeys🏖️ </h2>
+        <i>Sign up to plan effortlessly with your super trip adviser</i>
+      </div>
       <div className="container--SignupLogin">
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <form onSubmit={handleSubmit} className="form--editForm">
@@ -51,8 +55,10 @@ export default function SignupPage(props) {
           <button className="btn btn--primary" type="submit">
             Sign up
           </button>
-          <span className="text--sm, text--SignupLogin">Already have account? </span>
-          <span className="hyperlink--sm"> Login</span>
+          <div className="text--SignupLogin">
+            <span className="text--sm">Already have account? </span>
+            <Link to={"/auth/login"}><span className="hyperlink--sm"> Login</span></Link>
+          </div>
         </form>
       </div>
     </div>

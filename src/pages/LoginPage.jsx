@@ -1,8 +1,9 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 import "../globals.css"
 import "./SignupLoginPage.css";
-import axios from "axios";
+import { AuthContext } from "../context/auth.context";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
@@ -12,9 +13,11 @@ export default function LoginPage() {
   const navigate = useNavigate()
 
   const handleLoginSubmit = (e) => {
-    e.preventDefaut()
+    e.preventDefault()
 
     const requestBody = {email, password}
+
+    console.log(requestBody)
 
     axios
     .post(`${import.meta.env.VITE_BACKEND_HOST}/api/users`, requestBody)
@@ -24,15 +27,19 @@ export default function LoginPage() {
             storeToken(response.data.authToken)
 
             authenticateUser()
-            navigate(`/profile`)
+            navigate("/trips")
     })
     .catch((error) => {
-      console.log(error)
+      setErrorMessage(error.response.data.errorMessage)
   })
   }
 
   return (
     <div className="signupLoginDisplay">
+      <div className="heading--SignupLogin">
+        <h2>Get ready for your next amazing adventure 🏖️</h2>
+        <i>Log in to check your trip details</i>
+      </div>
       <div className="container--SignupLogin">
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <form onSubmit={handleLoginSubmit} className="form--editForm">
@@ -47,8 +54,10 @@ export default function LoginPage() {
           <button className="btn btn--primary" type="submit">
             Login
           </button>
-          <span className="text--sm, text--SignupLogin">No account yet? </span>
-          <span className="hyperlink--sm"> Sign up</span>
+          <div className="text--SignupLogin">
+            <span className="text--sm, text--SignupLogin">No account yet? </span>
+            <Link to={"/auth/signup"}><span className="hyperlink--sm"> Sign up</span></Link>
+          </div>
         </form>
       </div>
     </div>
