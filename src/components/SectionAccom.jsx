@@ -5,13 +5,13 @@ import "./AccomCard.css";
 export default function SectionAccom() {
   return (
     <div className="section">
-      <h4>
-        <Icon icon={"material-symbols:hotel-outline"}></Icon>Accomadation
+      <h4 className="sectionHeading">
+        <span className="sectionIcon"><Icon icon={"material-symbols:hotel-outline"}></Icon></span>Accomadation
       </h4>
       <div className="sectionContainer">
         <div className="accomSubsection">
           <div className="accomSubsection--main">
-            <img src="" alt="" />
+            <div className="accomSubsection--roomImg" style={{backgroundImage:`url("public/exampleRoom.png")`}}></div>
             <div className="accomSubsection--Info">
               <p>Host : Ceci</p>
               <p>Tel : </p>

@@ -5,12 +5,13 @@ import "./FlightCard.css";
 export default function SectionFlight() {
   return (
     <div className="section">
-      <h4 className="sectionHeading"><Icon icon={"fluent-mdl2:airplane"}></Icon> Flight</h4>
+      <h4 className="sectionHeading">
+      <span className="sectionIcon"><Icon icon={"fluent-mdl2:airplane"}></Icon></span> Flight</h4>
       <div className="sectionContainer">
 
         <div className="flightSubsection">
 
-          <div className="flightTicket--container greenContour">
+          <div className="greenContour flightTicket--container">
             <div className="flightTicket--row">
               <div className="flightTicket--Info">
                 <div>13:10</div>
@@ -119,7 +120,7 @@ export default function SectionFlight() {
           
         </div>
 
-        <div className="totalCost"><span><h4>Total : </h4></span><span><h3> $1147</h3></span></div>
+        <div className="totalCost"><h4>Total : </h4><h3> $1147</h3></div>
 
       </div>
     </div>

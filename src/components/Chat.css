@@ -16,6 +16,12 @@
   border: 1px solid #e2e8f0;
   box-shadow: var(--shadow)
 }
+@media (max-width:624px) {
+  .chat__messageZone {
+    margin: 0 16px;
+  }
+}
+
 .chat__message {
   resize: none;
   border: 0;

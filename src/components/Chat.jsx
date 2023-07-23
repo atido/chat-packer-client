@@ -6,10 +6,6 @@ import "./Chat.css";
 import Loader from "./Loader";
 import Thread from "./Thread";
 
-import FlightCard from "./FlightCard"
-import AccomCard from "./AccomCard"
-import TripCard from "./TripCard"
-
 export default function Chat() {
   const [message, setMessage] = useState("");
   const [conversation, setConversation] = useState([]);
@@ -106,10 +102,6 @@ export default function Chat() {
             )}
           </div>
         </form>
-
-        <AccomCard/>
-        <FlightCard/>
-        {/* <TripCard/> */}
       </div>
     </div>
   );

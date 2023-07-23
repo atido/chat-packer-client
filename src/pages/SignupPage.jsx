@@ -34,7 +34,7 @@ export default function SignupPage(props) {
   return (
     <div className="signupLoginDisplay">
       <div className="heading--SignupLogin">
-        <h2>Sign up to your next delightful journeys🏖️ </h2>
+        <h2>Step into to your next delightful journeys🏖️ </h2>
         <i>Sign up to plan effortlessly with your super trip adviser</i>
       </div>
       <div className="container--SignupLogin">

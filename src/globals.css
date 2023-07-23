@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Pacifico&display=swap");
 
 :root {
-  --primary-color: #406b7d;
+  --primary-color: #065666;
   --primary-color-hover: #086f83;
   --secondary-color: rgba(196, 241, 249, 0.7);
   --secondary-color-hover: rgba(196, 241, 249, 0.9);
@@ -34,6 +34,12 @@ h1 {
   font-size: 3rem;
   font-family: "Pacifico", cursive;
 }
+@media (max-width:390px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
 h2 {
   font-size: 2rem;
 }

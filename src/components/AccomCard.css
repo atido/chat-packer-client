@@ -69,13 +69,11 @@
 
 .AccomCard--Amenities {
     display: flex;
-    align-items: flex-s;
+    /* align-items: flex-s; */
 }
 
 .AccomCard--Amenity {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: inline;
     border-radius: 100px;
     background: #EDF2F7;
     color: var(--text1-color);
