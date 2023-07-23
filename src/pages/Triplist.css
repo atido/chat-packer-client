@@ -20,6 +20,9 @@
 #addTripBtn {
     position: fixed;
     bottom: 0;
-    background: #00A3C4;
-    
+    left: 50%;
+    transform: translateX(-50%);
+    color: #00A3C4;
+    font-size: 3rem;
+    margin-bottom: 16px;
 }

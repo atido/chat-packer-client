@@ -5,6 +5,7 @@
   z-index: 3;
   -webkit-user-select: none;
   user-select: none;
+  margin: 16px;
 }
 
 #menuToggle a {

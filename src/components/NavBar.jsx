@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Logo from "./Logo"
 import Menu from "./Menu"
 import "./NavBar.css"
@@ -7,7 +8,7 @@ export default function NavBar () {
         <div className="navBar">
             <Menu />
             <h3><Logo /></h3>
-            <img className="avatar--user" src="public/exampleUser.png" alt="" />
+            <Link to={"/profile"}><img className="avatar--user" src="/exampleUser.png" alt="" /></Link>
         </div>
     )
 }

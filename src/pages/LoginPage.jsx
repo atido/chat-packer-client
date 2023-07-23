@@ -1,9 +1,9 @@
-import { useState, useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from "../context/auth.context";
 import "../globals.css"
 import "./SignupLoginPage.css";
-import { AuthContext } from "../context/auth.context";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
@@ -11,6 +11,9 @@ export default function LoginPage() {
   const [errorMessage, setErrorMessage] = useState(undefined)
 
   const navigate = useNavigate()
+
+  const { storeToken,authenticateUser, user } = useContext(AuthContext)
+
 
   const handleLoginSubmit = (e) => {
     e.preventDefault()
@@ -20,7 +23,7 @@ export default function LoginPage() {
     console.log(requestBody)
 
     axios
-    .post(`${import.meta.env.VITE_BACKEND_HOST}/api/users`, requestBody)
+    .post(`${import.meta.env.VITE_BACKEND_HOST}/api/sessions`, requestBody)
     .then((response) => {
       console.log('JWT token', response.data.authToken)
 
@@ -55,7 +58,7 @@ export default function LoginPage() {
             Login
           </button>
           <div className="text--SignupLogin">
-            <span className="text--sm, text--SignupLogin">No account yet? </span>
+            <span>No account yet? </span>
             <Link to={"/auth/signup"}><span className="hyperlink--sm"> Sign up</span></Link>
           </div>
         </form>

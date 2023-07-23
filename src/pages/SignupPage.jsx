@@ -56,7 +56,7 @@ export default function SignupPage(props) {
             Sign up
           </button>
           <div className="text--SignupLogin">
-            <span className="text--sm">Already have account? </span>
+            <span>Already have account? </span>
             <Link to={"/auth/login"}><span className="hyperlink--sm"> Login</span></Link>
           </div>
         </form>
