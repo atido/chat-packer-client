@@ -8,6 +8,7 @@ export default function Chat() {
   const [message, setMessage] = useState("");
   const [conversation, setConversation] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const isMessageInputEmpty = message.trim() === "";
 
   useEffect(() => {
     initConversation();
@@ -27,40 +28,22 @@ export default function Chat() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     if (e) e.preventDefault();
-    const newConversation = [
-      ...conversation,
-      { id: crypto.randomUUID(), role: "user", content: message },
-    ];
-    setConversation(newConversation);
-    setMessage("");
-    sendConversation(newConversation);
-  };
-
-  const sendConversation = async (newConversation) => {
     setIsLoading(true);
-    const conversationForChatService = newConversation.map((el) => ({
-      role: el.role,
-      content: el.content,
-    }));
+    setMessage("");
+
     await fetch(`${import.meta.env.VITE_BACKEND_HOST}/api/chat`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ conversation: conversationForChatService }),
+      body: JSON.stringify({ conversation: conversation, message }),
     })
       .then((response) => response.json())
       .then((data) => {
-        setConversation([
-          ...newConversation,
-          {
-            content: data.content,
-            role: data.role,
-            id: crypto.randomUUID(),
-          },
-        ]);
+        setMessage("");
+        setConversation(data);
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
@@ -87,8 +70,14 @@ export default function Chat() {
             />
 
             {!isLoading ? (
-              <button type="submit">
-                <Icon className="chat__submit" icon="fe:paper-plane" />
+              <button
+                type="submit"
+                disabled={isMessageInputEmpty}
+                className={`chat__submit-btn btn btn--primary ${
+                  isMessageInputEmpty ? "btn--disabled" : ""
+                }`}
+              >
+                <Icon className="chat__submit-icon" icon="fe:paper-plane" />
               </button>
             ) : (
               <Loader />

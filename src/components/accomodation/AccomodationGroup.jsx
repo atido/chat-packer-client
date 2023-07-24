@@ -3,7 +3,7 @@ import AccomodationCard from "./AccomodationCard";
 
 export default function AccomodationCardGroup({ body }) {
   return (
-    <div className="card-group">
+    <div className="card-group acccomodation">
       {body.map((accomodation) => (
         <AccomodationCard key={accomodation._id} accomodation={accomodation} />
       ))}

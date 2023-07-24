@@ -16,10 +16,7 @@ export default function LoginPage() {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-
     const requestBody = { email, password };
-
-    console.log(requestBody);
 
     axios
       .post(`${import.meta.env.VITE_BACKEND_HOST}/api/sessions`, requestBody)

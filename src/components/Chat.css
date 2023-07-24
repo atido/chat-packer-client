@@ -9,14 +9,13 @@
 .chat__messageZone {
   display: flex;
   align-items: center;
-  border: 1px solid grey;
   padding: 0.5rem;
   background-color: white;
   border-radius: 6px;
   border: 1px solid #e2e8f0;
-  box-shadow: var(--shadow)
+  box-shadow: var(--shadow);
 }
-@media (max-width:624px) {
+@media (max-width: 624px) {
   .chat__messageZone {
     margin: 0 16px;
   }
@@ -31,8 +30,18 @@
   font-family: "Lato", sans-serif;
   outline: none;
 }
-.chat__container .chat__submit {
-  width: 2rem;
-  height: 2em;
-  color: var(--primary-color);
+
+.chat__submit-btn {
+  padding: 0.75rem;
+  transition-duration: 0.25s;
+  transition-property: color, background-color;
+}
+
+.chat__submit-icon {
+  width: 1.5rem;
+  height: 1.5em;
+}
+
+.btn--disabled .chat__submit-icon {
+  color: var(--text2-color);
 }

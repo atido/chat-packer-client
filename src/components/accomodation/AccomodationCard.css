@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 67.3%;
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
 
@@ -69,7 +69,6 @@
 
 .AccomCard--Amenities {
   display: flex;
-  /* align-items: flex-s; */
 }
 
 .AccomCard--Amenity {
