@@ -1,0 +1,27 @@
+.flightTicket__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/flight-ticket.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.flightTicket__row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4px;
+}
+
+.flightTicket__info {
+  text-align: center;
+  padding: 0px 4px;
+}
+
+.flightTicket__carrier-logo {
+  height: 1.5rem;
+  width: auto;
+}

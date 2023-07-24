@@ -10,8 +10,6 @@
 }
 
 .cardHeading--White {
-  position: absolute;
-  top: 0;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -19,7 +17,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  z-index: 100;
   width: 100%;
   padding: 2px 8px;
 }

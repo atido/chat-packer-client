@@ -1,17 +1,17 @@
-.flightCard--Top {
+.flightCard__top {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 67.3%;
+  height: 100%;
   background: var(--flight-ticket-bg);
 
   color: var(--text1-color);
   border-radius: 8px 8px 0px 0px;
 }
 
-.flightCard--Bottom {
+.flightCard__bottom {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -21,27 +21,4 @@
   color: var(--text1-color);
   border-radius: 0px 0px 8px 8px;
   padding: 6px 8px;
-}
-
-.flightTicket--container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-image: url("/flight-ticket.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-top: 16px;
-}
-
-.flightTicket--row {
-  display: flex;
-  justify-content: space-around;
-  padding: 4px;
-}
-
-.flightTicket--Info {
-  text-align: center;
-  padding: 0px 4px;
 }

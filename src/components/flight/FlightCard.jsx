@@ -1,43 +1,20 @@
 import { Icon } from "@iconify/react";
 import "../Card.css";
 import "./FlightCard.css";
+import FlightTicket from "./FlightTicket";
 
 export default function FlightCard({ flight }) {
   return (
     <div className="card">
-      <div className="flightCard--Top">
+      <div className="flightCard__top">
         <div className="cardHeading--White">
           <div>{flight.type}</div>
           <div>{`${flight.price.total} ${flight.price.currency == "USD" ? "$" : "€"}`}</div>
         </div>
-        <div className="flightTicket--container">
-          <div className="flightTicket--row">
-            <div className="flightTicket--Info">
-              <div>{flight.go.departure.time}</div>
-              <h6>{flight.go.origin.displayCode}</h6>
-            </div>
-            <img src="/depart.svg" alt="" />
-            <div className="flightTicket--Info">
-              <div>{flight.go.arrival.time}</div>
-              <h6>{flight.go.destination.displayCode}</h6>
-            </div>
-            <img src="" alt="" />
-          </div>
-          <div className="flightTicket--row">
-            <div className="flightTicket--Info">
-              <div>{flight.back.departure.time}</div>
-              <h6>{flight.back.origin.displayCode}</h6>
-            </div>
-            <img src="/return.svg" alt="" />
-            <div className="flightTicket--Info">
-              <div>{flight.back.arrival.time}</div>
-              <h6>{flight.back.destination.displayCode}</h6>
-            </div>
-            <img src="" alt="" />
-          </div>
-        </div>
+        <FlightTicket journey={flight.go} />
+        <FlightTicket journey={flight.back} />
       </div>
-      <div className="flightCard--Bottom">
+      <div className="flightCard__bottom">
         <div className="cardHeading--Black">
           <div>
             {flight.go.origin.name}-{flight.go.destination.name}
