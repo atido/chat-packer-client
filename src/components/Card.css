@@ -1,42 +1,42 @@
 .card {
-    display: flex;
-    flex-direction: column;
-    width: 171px;
-    height: 171px;
-    aspect-ratio: 1;
-    margin: 8px;
-    border-radius: 8px;
-    box-shadow: var(--shadow)
+  display: flex;
+  flex-direction: column;
+  width: 171px;
+  height: 171px;
+  aspect-ratio: 1;
+  margin: 8px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
 }
 
 .cardHeading--White {
-    position: absolute;
-    top: 0;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    font-weight: 400;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    z-index: 100;
-    width: 100%;
-    padding: 2px 8px;
+  position: absolute;
+  top: 0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 100;
+  width: 100%;
+  padding: 2px 8px;
 }
 
 .cardHeading--Black {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    padding-bottom: 2px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding-bottom: 2px;
 }
 
 .cardGradient {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%);
-    transition: opacity 0.3s ease; 
-  }
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  transition: opacity 0.3s ease;
+}

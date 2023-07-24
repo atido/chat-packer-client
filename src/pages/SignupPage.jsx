@@ -14,8 +14,6 @@ export default function SignupPage(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-
     const requestBody = { username, email, password }
 
     axios

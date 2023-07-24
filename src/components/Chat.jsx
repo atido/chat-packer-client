@@ -1,10 +1,8 @@
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
-import "./Card.css";
 import "./Chat.css";
-
+import DynamicComponent from "./DynamicComponent";
 import Loader from "./Loader";
-import Thread from "./Thread";
 
 export default function Chat() {
   const [message, setMessage] = useState("");
@@ -72,12 +70,7 @@ export default function Chat() {
     <div className="chat">
       <div className="chat__container">
         {conversation?.map((el) => (
-          <Thread
-            key={el.id}
-            id={el.id}
-            message={el.content}
-            isAssistant={el.role === "assistant"}
-          />
+          <DynamicComponent key={el.id} element={el} />
         ))}
         <form onSubmit={handleSubmit}>
           <div className="chat__messageZone">
