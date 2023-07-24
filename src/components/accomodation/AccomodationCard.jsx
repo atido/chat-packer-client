@@ -23,6 +23,7 @@ export default function AccomCard({ accomodation }) {
       </div>
       <div className="AccomCard--Bottom">
         <div className="AccomCard--HostInfo">
+          <span className="cardHeading--Black">{accomodation.name}</span>
           <span className="AccomCard--Star">★</span>
           <span className="AccomCard--Rating">
             <h4>{accomodation.rating}</h4>
