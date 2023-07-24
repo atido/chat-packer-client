@@ -11,15 +11,15 @@ export default function FlightCard({ flight }) {
           <div>{flight.type}</div>
           <div>{`${flight.price.total} ${flight.price.currency == "USD" ? "$" : "€"}`}</div>
         </div>
-        <FlightTicket journey={flight.go} />
-        <FlightTicket journey={flight.back} />
+        <FlightTicket journey={flight.go} isReturn={false} />
+        <FlightTicket journey={flight.back} isReturn={true} />
       </div>
       <div className="flightCard__bottom">
         <div className="cardHeading--Black">
-          <div>
+          <div className="flightOriginDestination">
             {flight.go.origin.name}-{flight.go.destination.name}
           </div>
-          <div>{`${flight.price.total} ${flight.price.currency == "USD" ? "$" : "€"}`}</div>
+          <div className="flightPrice">{`${flight.price.total} ${flight.price.currency == "USD" ? "$" : "€"}`}</div>
         </div>
         <h6>
           <Icon icon={"formkit:arrowright"} />

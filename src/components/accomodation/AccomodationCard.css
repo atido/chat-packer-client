@@ -6,6 +6,7 @@
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
 
   border-radius: 8px 8px 0px 0px;
 }
@@ -15,6 +16,7 @@
   align-items: center;
   width: fit-content;
   color: var(--text1-color);
+  font-size: 0.8rem;
   border-radius: 100px;
   background: rgba(228, 240, 246, 0.7);
   backdrop-filter: blur(2px);
@@ -32,6 +34,15 @@
   color: white;
   padding: 2px 8px;
   margin-bottom: 8px;
+}
+
+.AccomCard--Name {
+  width: 68%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; 
 }
 
 .AccomCard--Bottom {

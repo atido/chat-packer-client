@@ -6,6 +6,12 @@
   height: 70vh;
   margin-inline: auto;
 }
+@media (max-width: 624px) {
+  .chat__container {
+    width: 100vw;
+  }
+}
+
 .chat__messageZone {
   display: flex;
   align-items: center;

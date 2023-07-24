@@ -1,6 +1,6 @@
 import "./FlightTicket.css";
 
-export default function FlightTicket({ journey }) {
+export default function FlightTicket({ journey, isReturn }) {
   return (
     <div className="flightTicket__container">
       <div className="flightTicket__row">
@@ -8,7 +8,7 @@ export default function FlightTicket({ journey }) {
           <div>{journey.departure.time}</div>
           <h6>{journey.origin.displayCode}</h6>
         </div>
-        <img src="/depart.svg" alt="go" />
+        <img src="/depart.svg" alt="go" className={isReturn ? "flipImage" : ""} />
         <div className="flightTicket__info">
           <div>{journey.arrival.time}</div>
           <h6>{journey.destination.displayCode}</h6>

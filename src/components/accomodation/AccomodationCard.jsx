@@ -10,10 +10,10 @@ export default function AccomCard({ accomodation }) {
         className="AccomCard--Top "
         style={{ backgroundImage: `url(${accomodation.images[0]})` }}
       >
-        <p className="AccomCard--Location">
+        <div className="AccomCard--Location">
           <Icon icon={"carbon:location-filled"} />
           {accomodation.city}
-        </p>
+        </div>
         <div className="AccomCard--Price">
           <div>{`${accomodation.price.total} ${
             accomodation.price.currency == "USD" ? "$" : "€"
@@ -23,7 +23,7 @@ export default function AccomCard({ accomodation }) {
       </div>
       <div className="AccomCard--Bottom">
         <div className="AccomCard--HostInfo">
-          <span className="cardHeading--Black">{accomodation.name}</span>
+          <span className="cardHeading--Black AccomCard--Name">{accomodation.name}</span>
           <span className="AccomCard--Star">★</span>
           <span className="AccomCard--Rating">
             <h4>{accomodation.rating}</h4>
