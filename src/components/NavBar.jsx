@@ -5,13 +5,11 @@ import "./NavBar.css";
 
 export default function NavBar() {
   return (
-    <div className="navBar">
+    <div className="nav-bar">
       <Menu />
-      <h3>
-        <Logo />
-      </h3>
+      <Logo isSmall={true} />
       <Link to={"/profile"}>
-        <img className="avatar--user" src="/exampleUser.png" alt="" />
+        <img className="avatar--user" src="/exampleUser.png" alt="user avatar" />
       </Link>
     </div>
   );

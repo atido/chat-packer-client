@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const AuthContext = React.createContext();
 
@@ -17,7 +17,7 @@ function AuthProviderWrapper(props) {
 
     if (storedToken) {
       axios
-        .get(`${import.meta.env.VITE_BACKEND_HOST}/api/sessions`, {
+        .get(`${import.meta.env.VITE_BACKEND_HOST}/api/session`, {
           headers: { Authorization: `Bearer ${storedToken}` },
         })
         .then((response) => {
@@ -68,4 +68,4 @@ function AuthProviderWrapper(props) {
   );
 }
 
-export { AuthProviderWrapper, AuthContext };
+export { AuthContext, AuthProviderWrapper };

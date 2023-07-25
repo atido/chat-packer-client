@@ -1,7 +1,7 @@
 .thread {
   display: flex;
   align-items: center;
-  margin-block: 1rem;
+  margin-block: 0.5rem;
 }
 .thread--user {
   justify-content: end;
@@ -9,7 +9,7 @@
 
 .thread--assistant {
   justify-content: start;
-  margin-left: 16px;
+  margin-left: 1rem;
 }
 
 .thread--user .thread__message {

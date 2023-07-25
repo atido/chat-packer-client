@@ -1,8 +1,22 @@
+import "./FlightDetailCard.css";
+import FlightInfo from "./FlightInfo";
+import FlightTicket from "./FlightTicket";
+
 export default function FlightDetailCard({ flight }) {
-  <div className="flightDetailCard__container">
-    <div className="flightDetailCard__content">
-      <div className="flight"></div>
-      <div className="flight"></div>
-    </div>
-  </div>;
+  return (
+    <section className="flight-detail-card">
+      <div className="flight-detail-card__container">
+        <div className="flight-detail-card__content">
+          <div className="flight-detail-card__journey">
+            <FlightTicket flightInfo={flight.go} />
+            <FlightInfo flightInfo={flight.go} />
+          </div>
+          <div className="flight-detail-card__journey">
+            <FlightTicket flightInfo={flight.back} />
+            <FlightInfo flightInfo={flight.back} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

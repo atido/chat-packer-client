@@ -1,6 +1,5 @@
 import { Icon } from "@iconify/react";
 import axios from "axios";
-import NavBar from "../components/NavBar";
 import "./TripListPage.css";
 
 export default function TripList() {
@@ -19,8 +18,7 @@ export default function TripList() {
 
   return (
     <>
-      <NavBar />
-      <div className="tripList">
+      <div className="trip-list">
         <ul>
           <li></li>
         </ul>

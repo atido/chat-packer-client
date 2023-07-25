@@ -1,0 +1,15 @@
+.flight-detail-card {
+}
+.flight-detail-card__container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+}
+.flight-detail-card__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem;
+}
+.flight-detail-card__journey {
+}

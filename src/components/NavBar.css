@@ -1,14 +1,14 @@
-.navBar {
-    width: 100vw;
-    height: 46px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--navBar-color);
+.nav-bar {
+  width: 100vw;
+  height: 46px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--nav-bar-color);
 }
 
 .avatar--user {
-    height: fit-content;
-    margin: 8px;
+  height: fit-content;
+  margin: 8px;
 }

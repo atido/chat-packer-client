@@ -61,7 +61,7 @@ export default function SignupPage(props) {
             Password
             <input
               className="input--editForm"
-              type="text"
+              type="pasword"
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

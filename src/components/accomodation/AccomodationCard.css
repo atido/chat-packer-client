@@ -51,7 +51,7 @@
   flex-direction: column;
   justify-content: space-around;
   height: 32.7%;
-  background: var(--mainBg-color);
+  background: var(--main-bg-color);
   color: var(--text1-color);
   border-radius: 0px 0px 8px 8px;
   padding: 8px;

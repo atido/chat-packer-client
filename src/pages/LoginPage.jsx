@@ -21,8 +21,6 @@ export default function LoginPage() {
     axios
       .post(`${import.meta.env.VITE_BACKEND_HOST}/api/sessions`, requestBody)
       .then((response) => {
-        console.log("JWT token", response.data.authToken);
-
         storeToken(response.data.authToken);
 
         authenticateUser();
@@ -56,7 +54,7 @@ export default function LoginPage() {
             Password
             <input
               className="input--editForm"
-              type="text"
+              type="password"
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

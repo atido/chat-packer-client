@@ -4,9 +4,16 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .logo__img {
-  height: 0.7em;
-  padding-left: 0.3em;
+  height: 2.5rem;
+  width: auto;
+}
+
+.logo--small {
+  height: 1rem;
 }

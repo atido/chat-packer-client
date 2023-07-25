@@ -1,31 +1,29 @@
 .profileDisplay {
-    height: 100vh;
-    background-color: var(--mainBg-color);
+  height: 100vh;
+  background-color: var(--main-bg-color);
 }
 
 .profilePage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profilePage > img {
-    width: 5rem;
-    margin: 3rem;
+  width: 5rem;
+  margin: 3rem;
 }
 
 .profileInfo {
-    width: 80%;
-    max-width: 37rem;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 1rem; 
+  width: 80%;
+  max-width: 37rem;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1rem;
 }
 
 .profileInfo > div {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
-

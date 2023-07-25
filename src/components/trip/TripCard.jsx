@@ -1,4 +1,4 @@
-import "./Card.css";
+import "../Card.css";
 import "./TripCard.css";
 
 export default function TripCard() {

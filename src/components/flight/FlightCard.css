@@ -1,11 +1,9 @@
 .flightCard__top {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
-  background: var(--flight-ticket-bg);
-
+  background: var(--flight-ticket-bg-color);
   color: var(--text1-color);
   border-radius: 8px 8px 0px 0px;
 }
@@ -19,7 +17,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: var(--mainBg-color);
+  height: 32.7%;
+  background: var(--main-bg-color);
   color: var(--text1-color);
   border-radius: 0px 0px 8px 8px;
   padding: 6px 8px;
@@ -31,7 +30,7 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
 }
 
 .flightPrice {

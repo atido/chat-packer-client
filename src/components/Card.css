@@ -4,13 +4,12 @@
   width: 171px;
   height: 171px;
   aspect-ratio: 1;
-  margin: 8px;
   border-radius: 8px;
   box-shadow: var(--shadow);
 }
 
 .cardHeading--White {
-  color: white;
+  color: #fff;
   display: flex;
   justify-content: space-between;
   font-weight: 400;

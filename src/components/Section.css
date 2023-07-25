@@ -1,96 +1,97 @@
 .section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    margin: 1rem 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  margin: 1rem 16px;
 }
 
 .sectionHeading {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 0.8rem;
 }
 
 .sectionIcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    aspect-ratio: 1;
-    background-color: var(--flight-ticket-bg);
-    color: white;
-    border-radius: 100%;
-    margin: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  aspect-ratio: 1;
+  background-color: var(--flight-ticket-bg-color);
+  color: white;
+  border-radius: 100%;
+  margin: 0 0.5rem;
 }
 
 .sectionContainer {
-    width: 92%;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: white;
-    padding: 8px;
-    margin: 16px;
-    border-radius: 8px;
-    box-shadow: var(--shadow)
+  width: 92%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: white;
+  padding: 8px;
+  margin: 16px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
 }
 
 .flightSubsection {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 46%;
-    margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 46%;
+  margin-bottom: 2rem;
 }
 
 .greenContour {
-    --bg-size: 96%;
-    width: fit-content;
-    padding: 2px 0;
-   
-    background: var(--flight-ticket-bg);
-    margin-bottom: 1rem;
+  --bg-size: 96%;
+  width: fit-content;
+  padding: 2px 0;
+
+  background: var(--flight-ticket-bg-color);
+  margin-bottom: 1rem;
 }
 
 .dateFlightNb {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 0.8rem;
 }
 
 .totalCost {
-    width: 100%;
-    margin-top: auto;
+  width: 100%;
+  margin-top: auto;
 }
 
-.totalCost > h3, h4  {
-    display: inline;
+.totalCost > h3,
+h4 {
+  display: inline;
 }
 
 .accomSubsection {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .accomSubsection--main {
-    display: flex;
+  display: flex;
 }
 
 .accomSubsection--roomImg {
-    width: 35vw;
-    height: 14vh;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-bottom: 1rem;
+  width: 35vw;
+  height: 14vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 1rem;
 }
 
 .accomSubsection--Info {
-    margin-left: 8px;
-    margin-bottom: 8px;
+  margin-left: 8px;
+  margin-bottom: 8px;
 }
