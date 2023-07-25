@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import "../Card.css";
 import "./AccomodationCard.css";
 
-export default function AccomCard({ accomodation }) {
+export default function AccomodationCard({ accomodation }) {
   return (
     <div className="card">
       <div
@@ -29,9 +29,9 @@ export default function AccomCard({ accomodation }) {
             <h4>{accomodation.rating}</h4>
           </span>
         </div>
-        <div className="AccomCard--Amenities">
-          <span className="AccomCard--Amenity">1 bed</span>
-          <span className="AccomCard--Amenity">1 private bathroom</span>
+        <div className="tag-group">
+          <div className="tag">1 bed</div>
+          <div className="tag">1 private bathroom</div>
         </div>
       </div>
     </div>

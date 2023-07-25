@@ -8,7 +8,7 @@ export default function FlightTicket({ flightInfo, isReturn }) {
           <div>{flightInfo.departure.time}</div>
           <h6>{flightInfo.origin.displayCode}</h6>
         </div>
-        <img src="/depart.svg" alt="go" className={isReturn ? "flipImage" : ""} />
+        <img src="/depart.svg" alt="plane" className={isReturn ? "flipImage" : ""} />
         <div className="flightTicket__info">
           <div>{flightInfo.arrival.time}</div>
           <h6>{flightInfo.destination.displayCode}</h6>

@@ -1,17 +1,23 @@
 import { Icon } from "@iconify/react";
-import "./Section.css";
 import "./AccomCard.css";
+import "./Section.css";
 
 export default function SectionAccom() {
   return (
     <div className="section">
       <h4 className="sectionHeading">
-        <span className="sectionIcon"><Icon icon={"material-symbols:hotel-outline"}></Icon></span>Accomadation
+        <span className="sectionIcon">
+          <Icon icon={"material-symbols:hotel-outline"}></Icon>
+        </span>
+        Accomadation
       </h4>
       <div className="sectionContainer">
         <div className="accomSubsection">
           <div className="accomSubsection--main">
-            <div className="accomSubsection--roomImg" style={{backgroundImage:`url("public/exampleRoom.png")`}}></div>
+            <div
+              className="accomSubsection--roomImg"
+              style={{ backgroundImage: `url("public/exampleRoom.png")` }}
+            ></div>
             <div className="accomSubsection--Info">
               <p>Host : Ceci</p>
               <p>Tel : </p>
@@ -21,11 +27,11 @@ export default function SectionAccom() {
             </div>
           </div>
 
-          <div className="AccomCard--amenities">
-            <span className="AccomCard--Amenity">1 bed</span>
-            <span className="AccomCard--Amenity">1 private bath</span>
-            <span className="AccomCard--Amenity">Air-conditioning</span>
-            <span className="AccomCard--Amenity">Wifi</span>
+          <div className="tag-group">
+            <span className="tag">1 bed</span>
+            <span className="tag">1 private bath</span>
+            <span className="tag">Air-conditioning</span>
+            <span className="tag">Wifi</span>
           </div>
         </div>
       </div>

@@ -1,6 +1,18 @@
 .flight-info {
-}
-.flight-info__direction-title {
+  color: var(--text3-color);
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem;
 }
 .flight-info__title {
+  color: var(--text1-color);
+  font-weight: 700;
+}
+.flight-info__direction {
+  margin-bottom: 0.5rem;
+}
+
+.flight-info__direction-title {
+  text-decoration-line: underline;
 }

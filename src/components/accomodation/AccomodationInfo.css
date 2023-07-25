@@ -1,0 +1,14 @@
+.accomodation-info {
+  color: var(--text1-color);
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem;
+}
+.accomodation-info__title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.accomodation-info__content > * {
+  margin-bottom: 0.5rem;
+}

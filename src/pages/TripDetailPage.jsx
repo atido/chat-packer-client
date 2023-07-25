@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import AccomodationDetailCard from "../components/accomodation/AccomodationDetailCard";
 import FlightDetailCard from "../components/flight/FlightDetailCard";
 
 export default function TripDetailPage() {
@@ -20,5 +21,18 @@ export default function TripDetailPage() {
     getTripDetail();
   }, [id]);
 
-  return <div className="trip-detail">{trip && <FlightDetailCard flight={trip.flight} />}</div>;
+  return (
+    <>
+      {trip && (
+        <div className="trip-detail">
+          <FlightDetailCard flight={trip.flight} />
+          <AccomodationDetailCard
+            accomodation={trip.accomodation}
+            departureDate={trip.tripInfo.departureDate}
+            returnDate={trip.tripInfo.returnDate}
+          />
+        </div>
+      )}
+    </>
+  );
 }

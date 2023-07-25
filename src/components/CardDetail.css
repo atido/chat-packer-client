@@ -1,0 +1,16 @@
+.detail-card {
+  margin-block: 1rem;
+}
+.detail-card__title {
+  margin-block: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.detail-card__container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-inline: 1rem;
+}

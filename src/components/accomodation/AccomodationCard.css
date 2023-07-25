@@ -42,7 +42,7 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
 }
 
 .AccomCard--Bottom {
@@ -55,10 +55,6 @@
   color: var(--text1-color);
   border-radius: 0px 0px 8px 8px;
   padding: 8px;
-}
-
-.AccomCard--Bottom span {
-  font-size: 11px;
 }
 
 .AccomCard--HostInfo {
@@ -76,17 +72,4 @@
 .AccomCard--Rating {
   color: var(--text2-color);
   padding-bottom: 2px;
-}
-
-.AccomCard--Amenities {
-  display: flex;
-}
-
-.AccomCard--Amenity {
-  display: inline;
-  border-radius: 100px;
-  background: #edf2f7;
-  color: var(--text1-color);
-  padding: 2px 6px;
-  margin: 0px 4px 4px 0px;
 }
