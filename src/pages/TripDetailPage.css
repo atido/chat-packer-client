@@ -1,0 +1,14 @@
+.trip-detail {
+  margin-block: 1rem;
+}
+.trip-detail__header {
+}
+
+.backlink {
+  display: flex;
+  justify-content: flex-end;
+}
+.backlink__img {
+}
+.backlink__text {
+}

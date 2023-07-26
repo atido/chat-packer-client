@@ -11,20 +11,19 @@ export default function Chat() {
   const isMessageInputEmpty = message.trim() === "";
 
   useEffect(() => {
+    const initConversation = async () => {
+      await fetch(`${import.meta.env.VITE_BACKEND_HOST}/api/chat`)
+        .then((response) => response.json())
+        .then((json) => setConversation(json))
+        .catch((err) => console.log(err));
+    };
     initConversation();
   }, []);
-
-  const initConversation = async () => {
-    await fetch(`${import.meta.env.VITE_BACKEND_HOST}/api/chat`)
-      .then((response) => response.json())
-      .then((json) => setConversation(json))
-      .catch((err) => console.log(err));
-  };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      handleSubmit();
+      if (!isMessageInputEmpty) handleSubmit();
     }
   };
 
@@ -56,7 +55,7 @@ export default function Chat() {
           <DynamicComponent key={el.id} element={el} />
         ))}
         <form onSubmit={handleSubmit}>
-          <div className="chat__messageZone">
+          <div className="chat__message-zone">
             <textarea
               className="chat__message"
               value={message}

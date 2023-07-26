@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import AccomodationDetailCard from "../components/accomodation/AccomodationDetailCard";
 import FlightDetailCard from "../components/flight/FlightDetailCard";
+import "./TripDetailPage.css";
 
 export default function TripDetailPage() {
   const [trip, setTrip] = useState();
@@ -24,7 +25,15 @@ export default function TripDetailPage() {
   return (
     <>
       {trip && (
-        <div className="trip-detail">
+        <div className="trip-detail container">
+          <div className="trip-detail__header">
+            <div className="backlink">
+              <img class="backlink__img" src="/back-arrow.svg" alt="back arrow" />
+              <div className="backlink__text">
+                <Link to="/trips">Back to trip list</Link>
+              </div>
+            </div>
+          </div>
           <FlightDetailCard flight={trip.flight} />
           <AccomodationDetailCard
             accomodation={trip.accomodation}

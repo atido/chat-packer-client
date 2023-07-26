@@ -12,7 +12,7 @@
   }
 }
 
-.chat__messageZone {
+.chat__message-zone {
   display: flex;
   align-items: center;
   padding: 0.5rem;
@@ -22,7 +22,7 @@
   box-shadow: var(--shadow);
 }
 @media (max-width: 624px) {
-  .chat__messageZone {
+  .chat__message-zone {
     margin: 0 16px;
   }
 }

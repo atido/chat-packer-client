@@ -30,8 +30,11 @@ export default function AccomodationCard({ accomodation }) {
           </span>
         </div>
         <div className="tag-group">
-          <div className="tag">1 bed</div>
-          <div className="tag">1 private bathroom</div>
+          {accomodation.amenities?.map((amenity) => (
+            <div key={amenity} className="tag">
+              {amenity}
+            </div>
+          ))}
         </div>
       </div>
     </div>

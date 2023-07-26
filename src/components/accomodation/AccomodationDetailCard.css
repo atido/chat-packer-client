@@ -1,25 +1,16 @@
 .accomodation-detail-card__content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  grid-template-areas: "img info" "amenities amenities" "price price";
   padding: 1rem;
 }
-@media screen and (min-width: 768px) {
-  .accomodation-detail-card__content {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "img info amenities" "price price price";
-  }
+.accomodation-detail-card__subcontent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 .accomodation-detail-card__image {
   width: 171px;
   height: auto;
-  grid-area: img;
 }
-.accomodation-detail-card__amenities {
-  grid-area: amenities;
-}
+
 .accomodation-detail-card__price {
   margin-top: 0.5rem;
-  grid-area: price;
 }

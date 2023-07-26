@@ -7,10 +7,10 @@ export default function Header() {
     <header className="header">
       <Logo />
       <div className="btn-group">
-        <Link to={"/auth/signup"}>
+        <Link to="/auth/signup">
           <button className="btn btn--primary">Sign Up</button>
         </Link>
-        <Link to={"/auth/login"}>
+        <Link to="/auth/login">
           <button className="btn btn--secondary">Login</button>
         </Link>
       </div>
