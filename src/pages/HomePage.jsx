@@ -5,8 +5,8 @@ import "./HomePage.css";
 export default function HomePage() {
   return (
     <section className="homepage">
+      <Header />
       <div className="container">
-        <Header />
         <main className="main">
           <Chat />
         </main>

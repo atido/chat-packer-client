@@ -54,36 +54,36 @@ export default function Chat() {
         {conversation?.map((el) => (
           <DynamicComponent key={el.id} element={el} />
         ))}
-        <form onSubmit={handleSubmit}>
-          <div className="chat__message-zone">
-            <textarea
-              className="chat__message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              onKeyDown={handleKeyDown}
-              name="message"
-              id="message"
-              cols="1"
-              rows="1"
-              placeholder="Send a message"
-            />
-
-            {!isLoading ? (
-              <button
-                type="submit"
-                disabled={isMessageInputEmpty}
-                className={`chat__submit-btn btn btn--primary ${
-                  isMessageInputEmpty ? "btn--disabled" : ""
-                }`}
-              >
-                <Icon className="chat__submit-icon" icon="fe:paper-plane" />
-              </button>
-            ) : (
-              <Loader />
-            )}
-          </div>
-        </form>
       </div>
+      <form onSubmit={handleSubmit}>
+        <div className="chat__message-zone">
+          <textarea
+            className="chat__message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            onKeyDown={handleKeyDown}
+            name="message"
+            id="message"
+            cols="1"
+            rows="1"
+            placeholder="Send a message"
+          />
+
+          {!isLoading ? (
+            <button
+              type="submit"
+              disabled={isMessageInputEmpty}
+              className={`chat__submit-btn btn btn--primary ${
+                isMessageInputEmpty ? "btn--disabled" : ""
+              }`}
+            >
+              <Icon className="chat__submit-icon" icon="fe:paper-plane" />
+            </button>
+          ) : (
+            <Loader />
+          )}
+        </div>
+      </form>
     </div>
   );
 }

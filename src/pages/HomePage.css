@@ -2,10 +2,26 @@
   height: 100vh;
   overflow-y: auto;
   background: url("/desktop-bg.png") center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage .container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%; /* give full height */
+  padding: 10rem 0 8rem 0;
 }
 
 .homepage .main {
+  padding-top: 120px;
+  flex: 1; /* consume remaining space */
   display: grid;
   place-content: center;
+  overflow-y: auto; /* make scrollable */
   grid-template-columns: 1fr;
+  width: 100%; /* adjust width */
 }

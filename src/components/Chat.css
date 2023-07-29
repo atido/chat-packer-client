@@ -1,10 +1,17 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* add space between container and message zone */
+  height: 100%; 
+}
+
 .chat__container {
+  flex: 1; /* consume remaining space */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  overflow-y: auto; /* make scrollable */
   max-width: 37rem;
-  height: 70vh;
-  overflow: auto;
   margin-inline: auto;
 }
 @media (max-width: 624px) {
@@ -13,7 +20,17 @@
   }
 }
 
+.chat > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .chat__message-zone {
+  position: fixed;
+  bottom: 4rem;
+  max-width: 37rem;
+  width: 92%;
   display: flex;
   align-items: center;
   padding: 0.5rem;

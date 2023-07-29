@@ -1,9 +1,12 @@
 .header {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   padding-block: 3rem;
+  position: fixed;
+  margin: 0 auto;
 }
 
 .header .btn-group {
@@ -16,7 +19,7 @@
   .header {
     flex-direction: column-reverse;
     padding-block: 1rem;
-
+    margin-left: auto;
   }
 
   .header .btn-group {
