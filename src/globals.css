@@ -65,8 +65,18 @@ h6 {
 }
 
 .hyperlink--sm {
+  position: relative;
   color: var(--hyperlink-color);
   font-size: 1rem;
+}
+
+.hyperlink--sm > input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 }
 
 .btn-group {

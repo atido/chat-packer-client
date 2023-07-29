@@ -7,6 +7,7 @@ import ProfilePage from "./pages/ProfilePage";
 import SignupPage from "./pages/SignupPage";
 import TripDetailPage from "./pages/TripDetailPage";
 import TripListPage from "./pages/TripListPage";
+import ProfileEditPage from "./pages/ProfileEditPage";
 // import IsPrivate from "./components/IsPrivate";
 // import IsAnon from "./components/IsAnon";
 
@@ -23,6 +24,7 @@ function App() {
           <Route index element={<TripListPage />} />
         </Route>
         <Route path="/profile" element={<AuthentLayout />}>
+          <Route path="/profile/edit" element={<ProfileEditPage />} />
           <Route index element={<ProfilePage />} />
         </Route>
       </Routes>

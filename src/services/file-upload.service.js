@@ -10,7 +10,7 @@ const uploadImage = (file) => {
 
 const updateAvatar = (fileUrl) => {
   return myaxios
-    .put(`/api/user`, { avatar: fileUrl })
+    .put(`/api/avatar`, { avatar: fileUrl })
     .then((res) => res.data)
     .catch(err => console.log(err));
 };

@@ -38,7 +38,7 @@ export default function LoginPage() {
             Email
             <input
               className="input--editForm"
-              type="text"
+              type="email"
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
