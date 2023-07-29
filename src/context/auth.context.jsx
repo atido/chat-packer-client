@@ -13,14 +13,15 @@ function AuthProviderWrapper(props) {
   };
 
   function login(email, password) {
-    myaxios
+    return myaxios
       .post(`/api/sessions`, { email, password })
       .then((response) => {
         storeToken(response.data.authToken);
-        refreshUser();
+        return refreshUser();
       })
       .catch((err) => {
         console.log("error while logining");
+        throw err
         setIsLoggedIn(false);
         setIsLoading(false);
         setUser(false);
@@ -28,13 +29,14 @@ function AuthProviderWrapper(props) {
   }
 
   function refreshUser() {
-    myaxios
+    return myaxios
       .get("/api/user")
       .then((response) => {
         setUser(response.data);
       })
       .catch((err) => {
         console.log("error while refreshing the user");
+        throw err
         setIsLoggedIn(false);
         setIsLoading(false);
         setUser(false);

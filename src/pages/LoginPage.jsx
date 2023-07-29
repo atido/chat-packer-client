@@ -17,8 +17,12 @@ export default function LoginPage() {
   const handleLoginSubmit = (e) => {
     e.preventDefault();
 
-    login(email, password)
-    navigate("/trips");
+    login(email, password).then(() => {
+      navigate("/trips");
+    }).catch(err => {
+      setErrorMessage('Wrong credentials')
+    })
+    
   };
 
   return (
