@@ -12,23 +12,13 @@ export default function LoginPage() {
 
   const navigate = useNavigate();
 
-  const { storeToken, authenticateUser, user } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { email, password };
 
-    myaxios
-      .post(`/api/sessions`, requestBody)
-      .then((response) => {
-        storeToken(response.data.authToken);
-
-        authenticateUser();
-        navigate("/trips");
-      })
-      .catch((error) => {
-        setErrorMessage(error.response.data.errorMessage);
-      });
+    login(email, password)
+    navigate("/trips");
   };
 
   return (

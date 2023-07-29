@@ -4,7 +4,7 @@ import "./Menu.css";
 
 export default function () {
   //revoir note
-  const { user, logOutUser } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
 
   return (
     <div className="menu">
@@ -15,7 +15,7 @@ export default function () {
           <span></span>
           <span></span>
           <ul id="menu">
-            <button onClick={logOutUser}>Logout</button>
+            <button onClick={e => logout()}>Logout</button>
             <span>{user && user.username}</span>
             <li className="">
               <a href=""></a>

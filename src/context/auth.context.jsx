@@ -8,38 +8,24 @@ function AuthProviderWrapper(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
 
-  const storeToken = (token) => {
+  function storeToken(token) {
     localStorage.setItem("authToken", token);
   };
 
-  const authenticateUser = () => {
-    const storedToken = localStorage.getItem("authToken");
-
-    if (storedToken) {
-      myaxios
-        .get(`/api/session`)
-        .then((response) => {
-          const user = response.data;
-          setIsLoggedIn(true);
-          setIsLoading(false);
-          setUser(user);
-        })
-        .catch((error) => {
-          // TODO?
-          // si "jwt expired" -> rediriger?
-          // if (error.response.data.errorMessage.includes('ERJWTEXPIRED')){
-          // }
-
-          setIsLoggedIn(false);
-          setIsLoading(false);
-          setUser(null);
-        });
-    } else {
-      setIsLoggedIn(false);
-      setIsLoading(false);
-      setUser(null);
-    }
-  };
+  function login(email, password) {
+    myaxios
+      .post(`/api/sessions`, { email, password })
+      .then((response) => {
+        storeToken(response.data.authToken);
+        refreshUser();
+      })
+      .catch((err) => {
+        console.log("error while logining");
+        setIsLoggedIn(false);
+        setIsLoading(false);
+        setUser(false);
+      });
+  }
 
   function refreshUser() {
     myaxios
@@ -49,17 +35,16 @@ function AuthProviderWrapper(props) {
       })
       .catch((err) => {
         console.log("error while refreshing the user");
+        setIsLoggedIn(false);
+        setIsLoading(false);
+        setUser(false);
       });
   }
 
-  const removeToken = () => {
+  function logout() {
     localStorage.removeItem("authToken");
-  };
-
-  const logOutUser = () => {
-    removeToken();
-    authenticateUser();
-  };
+    setUser(null);
+  }
 
   useEffect(() => {
     refreshUser();
@@ -71,11 +56,9 @@ function AuthProviderWrapper(props) {
         isLoggedIn,
         isLoading,
         user,
-        setUser,
-        storeToken,
-        authenticateUser,
+        login,
         refreshUser,
-        logOutUser,
+        logout,
       }}
     >
       {props.children}
