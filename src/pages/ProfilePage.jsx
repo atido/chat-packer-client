@@ -21,9 +21,9 @@ export default function ProfilePage() {
 
     service
       .uploadImage(uploadData)
-      .then((response) => {
+      .then((data) => {
         // 1
-        return service.updateAvatar(response.fileUrl);
+        return service.updateAvatar(data.fileUrl);
       })
       .then(() => {
         // 2
