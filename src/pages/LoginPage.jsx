@@ -1,7 +1,7 @@
-import axios from "axios";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import myaxios from "../../myaxios";
 import "../globals.css";
 import "./SignupLoginPage.css";
 
@@ -18,8 +18,8 @@ export default function LoginPage() {
     e.preventDefault();
     const requestBody = { email, password };
 
-    axios
-      .post(`${import.meta.env.VITE_BACKEND_HOST}/api/sessions`, requestBody)
+    myaxios
+      .post(`/api/sessions`, requestBody)
       .then((response) => {
         storeToken(response.data.authToken);
 

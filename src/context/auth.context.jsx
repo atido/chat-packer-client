@@ -1,5 +1,5 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import myaxios from "../../myaxios";
 
 const AuthContext = React.createContext();
 
@@ -16,10 +16,8 @@ function AuthProviderWrapper(props) {
     const storedToken = localStorage.getItem("authToken");
 
     if (storedToken) {
-      axios
-        .get(`${import.meta.env.VITE_BACKEND_HOST}/api/session`, {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        })
+      myaxios
+        .get(`/api/session`)
         .then((response) => {
           const user = response.data;
           setIsLoggedIn(true);
@@ -27,6 +25,11 @@ function AuthProviderWrapper(props) {
           setUser(user);
         })
         .catch((error) => {
+          // TODO?
+          // si "jwt expired" -> rediriger?
+          // if (error.response.data.errorMessage.includes('ERJWTEXPIRED')){
+          // }
+
           setIsLoggedIn(false);
           setIsLoading(false);
           setUser(null);
@@ -38,6 +41,17 @@ function AuthProviderWrapper(props) {
     }
   };
 
+  function refreshUser() {
+    myaxios
+      .get("/api/user")
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((err) => {
+        console.log("error while refreshing the user");
+      });
+  }
+
   const removeToken = () => {
     localStorage.removeItem("authToken");
   };
@@ -48,7 +62,7 @@ function AuthProviderWrapper(props) {
   };
 
   useEffect(() => {
-    authenticateUser();
+    refreshUser();
   }, []);
 
   return (
@@ -60,6 +74,7 @@ function AuthProviderWrapper(props) {
         setUser,
         storeToken,
         authenticateUser,
+        refreshUser,
         logOutUser,
       }}
     >

@@ -4,6 +4,7 @@
   justify-content: flex-end;
   max-width: 37rem;
   height: 70vh;
+  overflow: auto;
   margin-inline: auto;
 }
 @media (max-width: 624px) {

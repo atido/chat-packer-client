@@ -1,40 +1,62 @@
-import { Icon } from "@iconify/react"
-import NavBar from "../components/NavBar"
-import "./ProfilePage.css"
-import "../globals.css"
+import { Icon } from "@iconify/react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/auth.context";
+import { useNavigate } from "react-router-dom";
+import service from "../services/file-upload.service";
+import axios from "axios";
+import "./ProfilePage.css";
+import "../globals.css";
 
-export default function ProfilePage () {
-    return (
-        <div className="profileDisplay">
-            <NavBar/>
-            <div className="profilePage">
-                <img src="public/exampleUser.png" alt="" />
-                <div className="profileInfo">
-                    <p className="subtitle">
-                        First name
-                    </p>
-                    <div>Elisa</div>
+export default function ProfilePage() {
+  const { user, refreshUser } = useContext(AuthContext);
 
-                    <p className="subtitle">
-                        Last name
-                    </p>
-                    <div>DUPONT</div>
+  const handleFileUpload = (e) => {
+    const uploadData = new FormData();
+    uploadData.append("avatar", e.target.files[0]);
 
-                    <p className="subtitle">
-                        Email address
-                    </p>
-                    <div>elisad@example.com</div>
+    //
+    // 1. update avatar
+    // 2. refresh user (with latest DB infos)
+    //
 
-                    <p className="subtitle">
-                        Password
-                    </p>
-                    <div>********</div>
-                    <div className="hyperlink--sm">
-                        <Icon icon={"material-symbols:edit-outline"}></Icon>Edit / Delete profile
-                    </div>
-                </div>
+    service
+      .uploadImage(uploadData)
+      .then((response) => {
+        // 1
+        return service.updateAvatar(response.fileUrl);
+      })
+      .then(() => {
+        // 2
+        refreshUser();
+      })
+      .catch((err) => console.log("Error while updating avatar: ", err));
+  };
 
-            </div>
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="profileDisplay">
+      <div className="profilePage">
+        <img src={user.avatar} alt="" />
+        <input type="file" onChange={handleFileUpload} />
+
+        <div className="profileInfo">
+          <p className="subtitle">User name</p>
+          <div>{user.username}</div>
+
+          <p className="subtitle">Email address</p>
+          <div>{user.email}</div>
+
+          <p className="subtitle">Password</p>
+          <div>********</div>
+          <div className="hyperlink--sm">
+            <Icon icon={"material-symbols:edit-outline"}></Icon>Edit / Delete
+            profile
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  );
 }
