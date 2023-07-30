@@ -7,7 +7,7 @@ export default function FlightCard({ flight }) {
   return (
     <div className="card">
       <div className="flightCard__top">
-        <div className="cardHeading--White">
+        <div className="cardHeading--lg">
           <div>{flight.type}</div>
           <div>{`${flight.price.total} ${flight.price.currency == "USD" ? "$" : "€"}`}</div>
         </div>

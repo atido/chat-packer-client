@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import axios from "axios";
 import "./TripListPage.css";
+import TripCard from "../../src/components/trip/TripCard.jsx"
 
 export default function TripList() {
   const getAllTrips = () => {
@@ -17,13 +18,16 @@ export default function TripList() {
   };
 
   return (
-    <>
+    <div className="trip-list-display">
       <div className="trip-list">
         <ul>
-          <li></li>
+          <li><TripCard/></li>
+          <li><TripCard/></li>
+          <li><TripCard/></li>
+          <li><TripCard/></li>
         </ul>
       </div>
-      <Icon id="addTripBtn" icon={"zondicons:add-solid"}></Icon>
-    </>
+      <div className="addTrip"><Icon className="addTripBtn" icon={"zondicons:add-solid"}/>Create a new trip</div>
+    </div>
   );
 }

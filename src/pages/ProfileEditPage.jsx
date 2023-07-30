@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import myaxios from "../../myaxios";
 import service from "../services/file-upload.service";
@@ -53,6 +54,7 @@ export default function ProfileEditPage() {
       .uploadImage(uploadData)
       .then((data) => {
         // 1
+        console.log(data)
         return service.updateAvatar(data.fileUrl);
       })
       .then(() => {
@@ -64,6 +66,7 @@ export default function ProfileEditPage() {
 
   return (
     <div className="profileDisplay">
+      <Link className="backLink" to={"/trips"}><div className="backLinkIcon"><Icon icon={"pajamas:go-back"}/></div> Back to trip list</Link>
       <form className="profilePage" onSubmit={handleEditSubmit}>
         <div className="avatarProfile">
           <img src={user.avatar} alt="" />

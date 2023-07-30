@@ -8,7 +8,7 @@
   box-shadow: var(--shadow);
 }
 
-.cardHeading--White {
+.cardHeading--lg {
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -27,12 +27,4 @@
   padding-bottom: 2px;
 }
 
-.cardGradient {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-  transition: opacity 0.3s ease;
-}
+

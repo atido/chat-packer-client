@@ -79,6 +79,20 @@ h6 {
   opacity: 0;
 }
 
+.backLink {
+  display: flex;
+  align-items: center;
+  margin: 1rem auto 0 1rem;
+}
+
+.backLinkIcon {
+  margin-right: 0.5rem;
+}
+
+.backLink:hover {
+  color: var(--primary-color-hover);
+}
+
 .btn-group {
   display: flex;
   gap: 1rem;

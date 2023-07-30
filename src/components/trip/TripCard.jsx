@@ -3,19 +3,19 @@ import "./TripCard.css";
 
 export default function TripCard() {
   return (
-    <div className="card">
+    <div className="TripCard card">
       <div className="TripCard--Top" style={{ background: `url("/exampleTravel.png")` }}>
         <div className="cardGradient"></div>
-        <h3 className="cardHeading--White" style={{ top: "65%" }}>
+        <h3 className="cardHeading--lg">
           Buenos Aires
         </h3>
       </div>
       <div className="TripCard--Bottom">
         <div className="subtitle">Argentine</div>
         <div className="TripCard--Date">
-          <span>14 Dec 2023</span>
+          <div>14 Dec 2023 </div>
           <span> - </span>
-          <span>30 Dec 2023</span>
+          <div> 30 Dec 2023</div>
         </div>
       </div>
     </div>
