@@ -37,7 +37,7 @@ function AuthProviderWrapper(props) {
         setUser(response.data);
       })
       .catch((err) => {
-        console.log("error while refreshing the user");
+        console.log("Error while refreshing the user");
         setIsLoggedIn(false);
         setIsLoading(false);
         setUser(false);

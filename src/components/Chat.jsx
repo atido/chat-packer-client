@@ -1,21 +1,23 @@
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
+import myaxios from "../../myaxios";
 import "./Chat.css";
 import DynamicComponent from "./DynamicComponent";
 import Loader from "./Loader";
 
 export default function Chat() {
   const [message, setMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [conversation, setConversation] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const isMessageInputEmpty = message.trim() === "";
 
   useEffect(() => {
     const initConversation = async () => {
-      await fetch(`${import.meta.env.VITE_BACKEND_HOST}/api/chat`)
-        .then((response) => response.json())
-        .then((json) => setConversation(json))
-        .catch((err) => console.log(err));
+      myaxios
+        .get(`${import.meta.env.VITE_BACKEND_HOST}/api/chat`)
+        .then((response) => setConversation(response.data))
+        .catch((err) => setErrorMessage(err.message));
     };
     initConversation();
   }, []);
@@ -31,19 +33,18 @@ export default function Chat() {
     if (e) e.preventDefault();
     setIsLoading(true);
     setMessage("");
+    setErrorMessage("");
 
-    await fetch(`${import.meta.env.VITE_BACKEND_HOST}/api/chat/events`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ conversation, type: "MESSAGE", params: { message } }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setConversation(data);
+    myaxios
+      .post(`${import.meta.env.VITE_BACKEND_HOST}/api/chat/events`, {
+        conversation,
+        type: "MESSAGE",
+        params: { message },
       })
-      .catch((err) => console.log(err))
+      .then((response) => setConversation(response.data))
+      .catch((err) => {
+        setErrorMessage(err.message);
+      })
       .finally(() => {
         setIsLoading(false);
       });
@@ -51,6 +52,7 @@ export default function Chat() {
 
   return (
     <div className="chat">
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
       <div className="chat__container">
         {conversation?.map((el) => (
           <DynamicComponent key={el.id} element={el} />
