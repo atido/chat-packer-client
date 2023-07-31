@@ -8,24 +8,25 @@ import SignupPage from "./pages/SignupPage";
 import TripDetailPage from "./pages/TripDetailPage";
 import TripListPage from "./pages/TripListPage";
 import ProfileEditPage from "./pages/ProfileEditPage";
-// import IsPrivate from "./components/IsPrivate";
-// import IsAnon from "./components/IsAnon";
+import IsPrivate from "./components/IsPrivate";
+import IsAnon from "./components/IsAnon";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/auth/signup" element={<SignupPage />} />
-        <Route path="/auth/login" element={<LoginPage />} />
+        <Route path="/auth/signup" element={<IsAnon><SignupPage /></IsAnon>} />
+        <Route path="/auth/login" element={<IsAnon><LoginPage /></IsAnon>} />
 
-        <Route path="/trips" element={<AuthentLayout />}>
-          <Route path=":id" element={<TripDetailPage />} />
-          <Route index element={<TripListPage />} />
+        <Route path="/trips" element={<IsPrivate><AuthentLayout /></IsPrivate>}>
+          <Route path=":id" element={<IsPrivate><TripDetailPage /></IsPrivate>} />
+          <Route index element={<IsPrivate><TripListPage /></IsPrivate>} />
         </Route>
-        <Route path="/profile" element={<AuthentLayout />}>
-          <Route path="/profile/edit" element={<ProfileEditPage />} />
-          <Route index element={<ProfilePage />} />
+        
+        <Route path="/profile" element={<IsPrivate><AuthentLayout /></IsPrivate>}>
+          <Route path="/profile/edit" element={<IsPrivate><ProfileEditPage /></IsPrivate>} />
+          <Route index element={<IsPrivate><ProfilePage /></IsPrivate>} />
         </Route>
       </Routes>
     </div>

@@ -109,7 +109,7 @@ export default function ProfileEditPage() {
               className="input--editForm"
               type="password"
               name="password"
-              value={""}
+              
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
