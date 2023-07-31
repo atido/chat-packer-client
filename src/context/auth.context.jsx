@@ -10,28 +10,27 @@ function AuthProviderWrapper(props) {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-
   function storeToken(token) {
     localStorage.setItem("authToken", token);
-  };
+  }
 
-  function login(email, password) {
+  async function login(email, password) {
     return myaxios
-      .post(`/api/sessions`, { email, password })
+      .post(`/api/users/login`, { email, password })
       .then((response) => {
         storeToken(response.data.authToken);
         return refreshUser();
       })
       .catch((err) => {
         console.log("error while logining");
-        throw err
         setIsLoggedIn(false);
         setIsLoading(false);
         setUser(false);
+        throw err;
       });
   }
 
-  function refreshUser() {
+  async function refreshUser() {
     return myaxios
       .get("/api/user")
       .then((response) => {
@@ -39,10 +38,10 @@ function AuthProviderWrapper(props) {
       })
       .catch((err) => {
         console.log("error while refreshing the user");
-        throw err
         setIsLoggedIn(false);
         setIsLoading(false);
         setUser(false);
+        throw err;
       });
   }
 

@@ -64,6 +64,10 @@ h6 {
   font-size: 1rem;
 }
 
+.hyperlink--no-decoration:hover {
+  text-decoration: none;
+}
+
 .hyperlink--sm {
   position: relative;
   color: var(--hyperlink-color);

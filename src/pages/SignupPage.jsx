@@ -17,8 +17,8 @@ export default function SignupPage(props) {
     const requestBody = { username, email, password };
 
     axios
-      .post(`${import.meta.env.VITE_BACKEND_HOST}/api/users`, requestBody)
-      .then((response) => {
+      .post(`${import.meta.env.VITE_BACKEND_HOST}/api/users/register`, requestBody)
+      .then(() => {
         setUsername("");
         setEmail("");
         setPassword("");

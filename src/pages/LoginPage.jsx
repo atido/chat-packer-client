@@ -1,14 +1,13 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import myaxios from "../../myaxios";
 import "../globals.css";
 import "./SignupLoginPage.css";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -16,13 +15,13 @@ export default function LoginPage() {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
+    setErrorMessage("");
 
-    login(email, password).then(() => {
-      navigate("/trips");
-    }).catch(err => {
-      setErrorMessage('Wrong credentials')
-    })
-    
+    login(email, password)
+      .then(() => {
+        navigate("/trips");
+      })
+      .catch((error) => setErrorMessage(error.response.data.errorMessage));
   };
 
   return (

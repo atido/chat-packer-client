@@ -5,6 +5,7 @@ import FlightDetailCard from "../components/flight/FlightDetailCard";
 import "./TripDetailPage.css";
 
 export default function TripDetailPage() {
+  const [errorMessage, setErrorMessage] = useState("");
   const [trip, setTrip] = useState();
   const { id } = useParams();
 
@@ -24,11 +25,12 @@ export default function TripDetailPage() {
 
   return (
     <>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
       {trip && (
         <div className="trip-detail container">
           <div className="trip-detail__header">
             <div className="backlink">
-              <img class="backlink__img" src="/back-arrow.svg" alt="back arrow" />
+              <img className="backlink__img" src="/back-arrow.svg" alt="back arrow" />
               <div className="backlink__text">
                 <Link to="/trips">Back to trip list</Link>
               </div>

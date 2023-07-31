@@ -1,11 +1,11 @@
 import { Icon } from "@iconify/react";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
 import myaxios from "../../myaxios";
+import { AuthContext } from "../context/auth.context";
+import "../globals.css";
 import service from "../services/file-upload.service";
 import "./ProfilePage.css";
-import "../globals.css";
 import "./SignupLoginPage.css";
 
 export default function ProfileEditPage() {
@@ -14,7 +14,7 @@ export default function ProfileEditPage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     if (user) {
@@ -29,8 +29,8 @@ export default function ProfileEditPage() {
   }
 
   const handleEditSubmit = (e) => {
-    console.log(username, email, password);
     e.preventDefault();
+    setErrorMessage("");
     return myaxios
       .put(`/api/user`, { username, email, password })
       .then((res) => {
@@ -38,7 +38,7 @@ export default function ProfileEditPage() {
         setUser(res.data.user);
         refreshUser();
       })
-      .catch((err) => console.log(err));
+      .catch((error) => setErrorMessage(error.response.data.errorMessage));
   };
 
   const handleFileUpload = (e) => {
@@ -54,7 +54,6 @@ export default function ProfileEditPage() {
       .uploadImage(uploadData)
       .then((data) => {
         // 1
-        console.log(data)
         return service.updateAvatar(data.fileUrl);
       })
       .then(() => {
@@ -66,14 +65,18 @@ export default function ProfileEditPage() {
 
   return (
     <div className="profileDisplay">
-      <Link className="backLink" to={"/trips"}><div className="backLinkIcon"><Icon icon={"pajamas:go-back"}/></div> Back to trip list</Link>
+      <Link className="backLink" to={"/trips"}>
+        <div className="backLinkIcon">
+          <Icon icon={"pajamas:go-back"} />
+        </div>
+        Back to trip list
+      </Link>
       <form className="profilePage" onSubmit={handleEditSubmit}>
         <div className="avatarProfile">
           <img src={user.avatar} alt="" />
         </div>
         <div className="hyperlink--sm">
-          <Icon icon={"material-symbols:edit-outline"}></Icon>Edit / Delete
-          photo
+          <Icon icon={"material-symbols:edit-outline"}></Icon>Edit / Delete photo
           <input type="file" onChange={handleFileUpload} />
         </div>
 
@@ -110,8 +113,10 @@ export default function ProfileEditPage() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
-
-          <button className="btn btn--primary" type="submit">Update</button>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <button className="btn btn--primary" type="submit">
+            Update
+          </button>
         </div>
       </form>
     </div>

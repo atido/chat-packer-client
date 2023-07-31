@@ -6,7 +6,7 @@ export default function AccommodationDetailCard({ accommodation, departureDate, 
   return (
     <section className="accommodation-detail-card detail-card">
       <div className="detail-card__title">
-        <img src="/accommodation.svg" alt="plane" />
+        <img src="/accommodation.svg" alt="accommodation" />
         <h4>Accommodation</h4>
       </div>
       <div className="detail-card__container">

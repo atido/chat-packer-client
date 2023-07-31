@@ -1,21 +1,20 @@
+import { formatDate } from "../../utils/date";
 import "../Card.css";
 import "./TripCard.css";
 
-export default function TripCard() {
+export default function TripCard({ trip }) {
   return (
     <div className="TripCard card">
-      <div className="TripCard--Top" style={{ background: `url("/exampleTravel.png")` }}>
+      <div className="TripCard--Top" style={{ background: `url(${trip.destinationPhoto})` }}>
         <div className="cardGradient"></div>
-        <h3 className="cardHeading--lg">
-          Buenos Aires
-        </h3>
+        <h3 className="cardHeading--lg">{trip.tripInfo.destinationCity}</h3>
       </div>
       <div className="TripCard--Bottom">
-        <div className="subtitle">Argentine</div>
+        <div className="subtitle">---</div>
         <div className="TripCard--Date">
-          <div>14 Dec 2023 </div>
+          <div>{formatDate(trip.tripInfo.departureDate)}</div>
           <span> - </span>
-          <div> 30 Dec 2023</div>
+          <div> {formatDate(trip.tripInfo.returnDate)}</div>
         </div>
       </div>
     </div>

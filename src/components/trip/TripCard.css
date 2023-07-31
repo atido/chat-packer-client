@@ -1,121 +1,131 @@
 .TripCard {
-    background: white;
+  background: white;
+}
+
+.TripCard:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.TripCard:hover img {
+  opacity: 0.8;
+}
+
+.TripCard:hover {
+  background-color: var(--nav-bar-color);
 }
 
 @media (min-width: 480px) {
-    .TripCard {
-        position: relative;
-        width: 448px;
-        height: 171px;
-        display: flex;
-        flex-direction: row;
-    }
+  .TripCard {
+    position: relative;
+    width: 448px;
+    height: 171px;
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 @media (min-width: 768px) {
-    .TripCard {
-        width: 352px;
-    }
+  .TripCard {
+    width: 352px;
+  }
 }
 
 @media (min-width: 990px) {
-    .TripCard {
-        width: 464px;
-    }
+  .TripCard {
+    width: 464px;
+  }
 }
 
 @media (min-width: 1280px) {
-    .TripCard {
-        width: 542px;
-    }
+  .TripCard {
+    width: 542px;
+  }
 }
 
 .TripCard--Top {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
-    height: 67.3%;
-    background-position: center;
-    background-repeat: no-repeat;
-    
-    border-radius: 8px 8px 0px 0px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 67.3%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 8px 8px 0px 0px;
 }
 
 @media (min-width: 480px) {
-    .TripCard--Top {
-        
-        height: 92%;
-        aspect-ratio: 1;
-        background-position: center;
-        background-repeat: no-repeat;
-        
-        border-radius: 0px 0px 0px 0px;
-        margin: auto 8px;
-    }
+  .TripCard--Top {
+    height: 92%;
+    aspect-ratio: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 0px 0px 0px 0px;
+    margin: auto 8px;
+  }
 }
 
 .TripCard--Top:hover .cardGradient {
-    opacity: 0;
+  opacity: 0;
 }
 
 .TripCard--Top .cardHeading--lg {
-    z-index: 100;
+  z-index: 100;
 }
 
 @media (min-width: 480px) {
-    .TripCard--Top .cardHeading--lg {
-        position: absolute;
-        width: 275px;
-        top: 0;
-        left: 165px;
-        color: var(--text1-color);
-        font-weight: 400;
-        font-size: 1.5rem;
-        text-wrap: wrap;
-        padding: 2px 8px;
-        z-index: 100;
-    }
+  .TripCard--Top .cardHeading--lg {
+    position: absolute;
+    width: 275px;
+    top: 0;
+    left: 165px;
+    color: var(--text1-color);
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-wrap: wrap;
+    padding: 2px 8px;
+    z-index: 100;
+  }
 }
 
 .TripCard--Bottom {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 32.7%;
-    background: white;
-    color: var(--text1-color);
-    border-radius: 0px 0px 8px 8px;
-    padding: 4px 8px;
-    margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 32.7%;
+  color: var(--text1-color);
+  border-radius: 0px 0px 8px 8px;
+  padding: 4px 8px;
+  margin-top: auto;
 }
 
 @media (min-width: 480px) {
-    .TripCard--Bottom .subtitle {
-        font-size: 1.2rem;
-    }
+  .TripCard--Bottom .subtitle {
+    font-size: 1.2rem;
+  }
 }
 
 .TripCard--Date {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    padding-bottom: 2px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding-bottom: 2px;
 }
 
 @media (min-width: 480px) {
-    .TripCard--Date {
-        font-size: 1rem;
-    }
-    .TripCard--Date span {
-        margin: 0 2px;
-    }
+  .TripCard--Date {
+    font-size: 1rem;
+  }
+  .TripCard--Date span {
+    margin: 0 2px;
+  }
 }
 
 @media (min-width: 768px) {
-    .TripCard--Date {
-        font-size: 0.8rem;
-    }
-    
+  .TripCard--Date {
+    font-size: 0.8rem;
+  }
 }
