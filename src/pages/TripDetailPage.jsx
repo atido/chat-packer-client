@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import AccomodationDetailCard from "../components/accomodation/AccomodationDetailCard";
+import AccommodationDetailCard from "../components/accommodation/AccommodationDetailCard";
 import FlightDetailCard from "../components/flight/FlightDetailCard";
 import "./TripDetailPage.css";
 
@@ -35,8 +35,8 @@ export default function TripDetailPage() {
             </div>
           </div>
           <FlightDetailCard flight={trip.flight} />
-          <AccomodationDetailCard
-            accomodation={trip.accomodation}
+          <AccommodationDetailCard
+            accommodation={trip.accommodation}
             departureDate={trip.tripInfo.departureDate}
             returnDate={trip.tripInfo.returnDate}
           />

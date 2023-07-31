@@ -1,0 +1,16 @@
+.accommodation-detail-card__content {
+  padding: 1rem;
+}
+.accommodation-detail-card__subcontent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.accommodation-detail-card__image {
+  width: 171px;
+  height: auto;
+}
+
+.accommodation-detail-card__price {
+  margin-top: 0.5rem;
+}

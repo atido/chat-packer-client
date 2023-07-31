@@ -1,36 +1,36 @@
 import { Icon } from "@iconify/react";
 
 import "../Card.css";
-import "./AccomodationCard.css";
+import "./AccommodationCard.css";
 
-export default function AccomodationCard({ accomodation }) {
+export default function AccommodationCard({ accommodation }) {
   return (
     <div className="card">
       <div
         className="AccomCard--Top "
-        style={{ backgroundImage: `url(${accomodation.images[0]})` }}
+        style={{ backgroundImage: `url(${accommodation.images[0]})` }}
       >
         <div className="AccomCard--Location">
           <Icon icon={"carbon:location-filled"} />
-          {accomodation.city}
+          {accommodation.city}
         </div>
         <div className="AccomCard--Price">
-          <div>{`${accomodation.price.total} ${
-            accomodation.price.currency == "USD" ? "$" : "€"
+          <div>{`${accommodation.price.total} ${
+            accommodation.price.currency == "USD" ? "$" : "€"
           }`}</div>
           <h6>/night</h6>
         </div>
       </div>
       <div className="AccomCard--Bottom">
         <div className="AccomCard--HostInfo">
-          <span className="cardHeading--Black AccomCard--Name">{accomodation.name}</span>
+          <span className="cardHeading--Black AccomCard--Name">{accommodation.name}</span>
           <span className="AccomCard--Star">★</span>
           <span className="AccomCard--Rating">
-            <h4>{accomodation.rating}</h4>
+            <h4>{accommodation.rating}</h4>
           </span>
         </div>
         <div className="tag-group">
-          {accomodation.amenities?.map((amenity) => (
+          {accommodation.amenities?.map((amenity) => (
             <div key={amenity} className="tag">
               {amenity}
             </div>

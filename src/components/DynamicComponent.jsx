@@ -1,12 +1,12 @@
 import React from "react";
 import Thread from "./Thread";
-import AccomodationCardGroup from "./accomodation/AccomodationGroup";
+import AccommodationCardGroup from "./accommodation/AccommodationCardGroup";
 import FlightCardGroup from "./flight/FlightCardGroup";
 
 const Components = {
   thread: Thread,
   flightCardGroup: FlightCardGroup,
-  accomodationCardGroup: AccomodationCardGroup,
+  accommodationCardGroup: AccommodationCardGroup,
 };
 
 const DynamicComponent = ({ element }) => {

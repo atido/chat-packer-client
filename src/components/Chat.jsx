@@ -32,20 +32,21 @@ export default function Chat() {
     setIsLoading(true);
     setMessage("");
 
-    await fetch(`${import.meta.env.VITE_BACKEND_HOST}/api/chat`, {
+    await fetch(`${import.meta.env.VITE_BACKEND_HOST}/api/chat/events`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ conversation: conversation, message }),
+      body: JSON.stringify({ conversation, type: "MESSAGE", params: { message } }),
     })
       .then((response) => response.json())
       .then((data) => {
-        setMessage("");
         setConversation(data);
-        setIsLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
