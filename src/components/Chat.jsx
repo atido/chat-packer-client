@@ -52,7 +52,6 @@ export default function Chat() {
 
   return (
     <div className="chat">
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
       <div className="chat__container">
         {conversation?.map((el) => (
           <DynamicComponent key={el.id} element={el} />
@@ -87,6 +86,7 @@ export default function Chat() {
           )}
         </div>
       </form>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
   );
 }

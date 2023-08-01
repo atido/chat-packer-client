@@ -26,6 +26,9 @@
   margin-right: 1rem;
   color: white;
 }
+.thread--error .thread__message {
+  background-color: var(--error-color);
+}
 .thread__message {
   box-shadow: var(--shadow);
   backdrop-filter: blur(2px);
