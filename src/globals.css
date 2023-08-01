@@ -5,6 +5,7 @@
   --primary-color-hover: #086f83;
   --secondary-color: rgba(196, 241, 249, 0.7);
   --secondary-color-hover: rgba(196, 241, 249, 0.9);
+  --error-color: #e57373;
   --text1-color: #0c1518;
   --text2-color: #707070;
   --text3-color: #8d8d8d;
@@ -105,6 +106,11 @@ h6 {
 .tag-group {
   display: flex;
   align-items: start;
+}
+
+.error-message {
+  color: var(--error-color);
+  margin-bottom: 1rem;
 }
 
 .tag {

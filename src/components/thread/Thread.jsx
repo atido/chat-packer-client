@@ -1,8 +1,12 @@
 import "./Thread.css";
 
-export default function Thread({ body }) {
+export default function Thread({ body, isError = false }) {
   return (
-    <div className={`thread ${body.role == "assistant" ? "thread--assistant" : "thread--user"}`}>
+    <div
+      className={`thread ${body.role == "assistant" ? "thread--assistant" : "thread--user"} ${
+        isError ? "thread--error" : ""
+      }`}
+    >
       {body.role == "assistant" && (
         <img className="thread__avatar" src="avatar-assistant.png" alt="assistant avatar" />
       )}

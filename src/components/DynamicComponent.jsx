@@ -1,10 +1,12 @@
 import React from "react";
-import Thread from "./Thread";
 import AccommodationCardGroup from "./accommodation/AccommodationCardGroup";
 import FlightCardGroup from "./flight/FlightCardGroup";
+import Thread from "./thread/Thread";
+import ThreadError from "./thread/ThreadError";
 
 const Components = {
   thread: Thread,
+  thread_error: ThreadError,
   flightCardGroup: FlightCardGroup,
   accommodationCardGroup: AccommodationCardGroup,
 };
