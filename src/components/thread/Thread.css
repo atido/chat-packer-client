@@ -5,6 +5,7 @@
 }
 .thread--user {
   justify-content: end;
+  margin-right: 1rem;
 }
 
 .thread--assistant {
