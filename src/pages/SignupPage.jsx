@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import myaxios from "../../myaxios";
 import "../globals.css";
 import "./SignupLoginPage.css";
 
@@ -16,7 +16,7 @@ export default function SignupPage(props) {
     e.preventDefault();
     const requestBody = { username, email, password };
 
-    axios
+    myaxios
       .post(`${import.meta.env.VITE_BACKEND_HOST}/api/users/register`, requestBody)
       .then(() => {
         setUsername("");
@@ -25,7 +25,7 @@ export default function SignupPage(props) {
 
         navigate("/auth/login");
       })
-      .catch((error) => setErrorMessage(error.response.data.errorMessage));
+      .catch((err) => setErrorMessage(err.message));
   };
 
   return (

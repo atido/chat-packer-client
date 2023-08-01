@@ -21,7 +21,7 @@ export default function LoginPage() {
       .then(() => {
         navigate("/trips");
       })
-      .catch((error) => setErrorMessage(error.response.data.errorMessage));
+      .catch((err) => setErrorMessage(err.message));
   };
 
   return (

@@ -76,8 +76,12 @@ function AuthProviderWrapper(props) {
         setIsLoading(false);
       })
       .catch((err) => {
+<<<<<<< HEAD
         console.log("error while refreshing the user");
         setUser(false);
+=======
+        console.log("Error while refreshing the user");
+>>>>>>> 7e0c2958d90783a79aaab2290c472cd44017589e
         setIsLoggedIn(false);
         setIsLoading(false);
         throw err;

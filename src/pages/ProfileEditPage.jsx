@@ -38,7 +38,7 @@ export default function ProfileEditPage() {
         setUser(res.data.user);
         refreshUser();
       })
-      .catch((error) => setErrorMessage(error.response.data.errorMessage));
+      .catch((error) => setErrorMessage(error.message));
   };
 
   const handleFileUpload = (e) => {

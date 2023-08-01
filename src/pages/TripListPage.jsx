@@ -14,7 +14,7 @@ export default function TripList() {
       myaxios
         .get(`${import.meta.env.VITE_BACKEND_HOST}/api/trips`)
         .then((response) => setTrips(response.data))
-        .catch((error) => setErrorMessage(error.response.data.errorMessage));
+        .catch((error) => setErrorMessage(error.message));
     };
     getAllTrips();
   }, []);
