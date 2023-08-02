@@ -19,7 +19,6 @@
   background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 13.94%, #fff 54.73%);
 }
 
-
 .homepage .container {
   display: flex;
   flex: 1;
@@ -33,7 +32,7 @@
   flex: 1; /* consume remaining space */
   display: flex;
   flex-direction: column;
-  width: 37rem;
+  max-width: 37rem;
   height: 100%;
   overflow: auto;
 }

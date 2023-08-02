@@ -26,15 +26,12 @@
 }
 
 .chat__footer {
-  
-  bottom: 0rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   z-index: 1;
   height: 6rem;
-  
 }
 
 .chat__input-zone {

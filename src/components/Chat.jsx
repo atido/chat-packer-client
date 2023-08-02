@@ -60,7 +60,6 @@ export default function Chat() {
             {conversation?.map((el) => (
               <DynamicComponent key={el.id} element={el} />
             ))}
-            <div style={{ height: "6rem" }} />
             {errorMessage && <p className="error-message">{errorMessage}</p>}
           </ScrollToBottom>
         )}
