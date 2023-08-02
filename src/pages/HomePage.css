@@ -1,27 +1,24 @@
 .homepage {
   height: 100vh;
-  overflow-y: auto;
   background: url("/desktop-bg.png") center/cover;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
 }
 
 .homepage .container {
-  position: relative;
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   height: 100%; /* give full height */
-  padding: 10rem 0 8rem 0;
 }
 
 .homepage .main {
-  padding-top: 120px;
+  position: relative;
   flex: 1; /* consume remaining space */
-  display: grid;
-  place-content: center;
-  overflow-y: auto; /* make scrollable */
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   width: 100%; /* adjust width */
 }

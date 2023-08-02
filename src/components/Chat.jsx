@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
+import ScrollToBottom from "react-scroll-to-bottom";
 import myaxios from "../../myaxios";
 import "./Chat.css";
 import DynamicComponent from "./DynamicComponent";
@@ -52,13 +53,16 @@ export default function Chat() {
   };
 
   return (
-    <div className="chat">
-      <div className="chat__container">
-        {conversation?.map((el) => (
-          <DynamicComponent key={el.id} element={el} />
-        ))}
+    <>
+      <div className="chat">
+        <ScrollToBottom className="chat__container">
+          {conversation?.map((el) => (
+            <DynamicComponent key={el.id} element={el} />
+          ))}
+        </ScrollToBottom>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="chat__bottom">
         <div className="chat__message-zone">
           <textarea
             className="chat__message"
@@ -87,7 +91,6 @@ export default function Chat() {
           )}
         </div>
       </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-    </div>
+    </>
   );
 }
