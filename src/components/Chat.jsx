@@ -15,7 +15,9 @@ export default function Chat() {
   useEffect(() => {
     const initConversation = async () => {
       myaxios
-        .get(`${import.meta.env.VITE_BACKEND_HOST}/api/chat`)
+        .post(`${import.meta.env.VITE_BACKEND_HOST}/api/chat/events`, {
+          type: "INIT",
+        })
         .then((response) => setConversation(response.data))
         .catch((err) => setErrorMessage(err.message));
     };
@@ -37,9 +39,8 @@ export default function Chat() {
 
     myaxios
       .post(`${import.meta.env.VITE_BACKEND_HOST}/api/chat/events`, {
-        conversation,
         type: "MESSAGE",
-        params: { message },
+        message,
       })
       .then((response) => setConversation(response.data))
       .catch((err) => {

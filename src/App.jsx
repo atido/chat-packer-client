@@ -16,17 +16,73 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/auth/signup" element={<IsAnon><SignupPage /></IsAnon>} />
-        <Route path="/auth/login" element={<IsAnon><LoginPage /></IsAnon>} />
+        <Route
+          path="/auth/signup"
+          element={
+            <IsAnon>
+              <SignupPage />
+            </IsAnon>
+          }
+        />
+        <Route
+          path="/auth/login"
+          element={
+            <IsAnon>
+              <LoginPage />
+            </IsAnon>
+          }
+        />
 
-        <Route path="/trips" element={<IsPrivate><AuthentLayout /></IsPrivate>}>
-          <Route path=":id" element={<IsPrivate><TripDetailPage /></IsPrivate>} />
-          <Route index element={<IsPrivate><TripListPage /></IsPrivate>} />
+        <Route
+          path="/trips"
+          element={
+            <IsPrivate>
+              <AuthentLayout />
+            </IsPrivate>
+          }
+        >
+          <Route
+            path=":id"
+            element={
+              <IsPrivate>
+                <TripDetailPage />
+              </IsPrivate>
+            }
+          />
+          <Route
+            index
+            element={
+              <IsPrivate>
+                <TripListPage />
+              </IsPrivate>
+            }
+          />
         </Route>
-        
-        <Route path="/profile" element={<IsPrivate><AuthentLayout /></IsPrivate>}>
-          <Route path="/profile/edit" element={<IsPrivate><ProfileEditPage /></IsPrivate>} />
-          <Route index element={<IsPrivate><ProfilePage /></IsPrivate>} />
+
+        <Route
+          path="/profile"
+          element={
+            <IsPrivate>
+              <AuthentLayout />
+            </IsPrivate>
+          }
+        >
+          <Route
+            path="/profile/edit"
+            element={
+              <IsPrivate>
+                <ProfileEditPage />
+              </IsPrivate>
+            }
+          />
+          <Route
+            index
+            element={
+              <IsPrivate>
+                <ProfilePage />
+              </IsPrivate>
+            }
+          />
         </Route>
       </Routes>
     </div>

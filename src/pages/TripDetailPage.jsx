@@ -36,12 +36,14 @@ export default function TripDetailPage() {
               </div>
             </div>
           </div>
-          <FlightDetailCard flight={trip.flight} />
-          <AccommodationDetailCard
-            accommodation={trip.accommodation}
-            departureDate={trip.tripInfo.departureDate}
-            returnDate={trip.tripInfo.returnDate}
-          />
+          {trip.flight && <FlightDetailCard flight={trip.flight} />}
+          {trip.accommodation && (
+            <AccommodationDetailCard
+              accommodation={trip.accommodation}
+              departureDate={trip.tripInfo.departureDate}
+              returnDate={trip.tripInfo.returnDate}
+            />
+          )}
         </div>
       )}
     </>
