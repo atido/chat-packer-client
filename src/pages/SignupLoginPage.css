@@ -5,7 +5,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url("/desktop-bg.png") center/cover;
+  background: url("/bg.png") center/cover;
+}
+
+@media (min-width: 1024px) {
+  .homepage {
+    background: url("/desktopBg.png") center/cover;
+  }
 }
 
 .heading--SignupLogin {
