@@ -98,6 +98,14 @@ h6 {
   color: var(--primary-color-hover);
 }
 
+@media (min-width: 768px){
+  .backLink {
+    display: flex;
+    align-items: center;
+    margin: 1rem auto 0 1rem;
+  }
+}
+
 .btn-group {
   display: flex;
   gap: 1rem;

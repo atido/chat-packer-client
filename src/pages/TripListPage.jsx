@@ -22,7 +22,7 @@ export default function TripList() {
   return (
     <div className="trip-list-display">
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-      {trips.length && (
+      {trips.length>0 && (
         <div className="trip-list">
           <ul>
             {trips.map((trip) => (
