@@ -12,7 +12,7 @@
   flex: 1;
   flex-direction: column;
   align-items: center;
-  height: 100%; /* give full height */
+  height: calc(100% - 12rem);
 }
 
 .homepage .main {
@@ -21,4 +21,6 @@
   display: flex;
   flex-direction: column;
   width: 100%; /* adjust width */
+  height: 100%;
+  overflow: auto;
 }

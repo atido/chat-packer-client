@@ -59,38 +59,41 @@ export default function Chat() {
           {conversation?.map((el) => (
             <DynamicComponent key={el.id} element={el} />
           ))}
+          <div style={{ height: "6rem" }}></div>
         </ScrollToBottom>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
-      <form onSubmit={handleSubmit} className="chat__bottom">
-        <div className="chat__message-zone">
-          <textarea
-            className="chat__message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            onKeyDown={handleKeyDown}
-            name="message"
-            id="message"
-            cols="1"
-            rows="1"
-            placeholder="Send a message"
-          />
+      <div className="chat__footer">
+        <form onSubmit={handleSubmit} className="chat__input-zone">
+          <div className="chat__message-zone">
+            <textarea
+              className="chat__message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={handleKeyDown}
+              name="message"
+              id="message"
+              cols="1"
+              rows="1"
+              placeholder="Send a message"
+            />
 
-          {!isLoading ? (
-            <button
-              type="submit"
-              disabled={isMessageInputEmpty}
-              className={`chat__submit-btn btn btn--primary ${
-                isMessageInputEmpty ? "btn--disabled" : ""
-              }`}
-            >
-              <Icon className="chat__submit-icon" icon="fe:paper-plane" />
-            </button>
-          ) : (
-            <Loader />
-          )}
-        </div>
-      </form>
+            {!isLoading ? (
+              <button
+                type="submit"
+                disabled={isMessageInputEmpty}
+                className={`chat__submit-btn btn btn--primary ${
+                  isMessageInputEmpty ? "btn--disabled" : ""
+                }`}
+              >
+                <Icon className="chat__submit-icon" icon="fe:paper-plane" />
+              </button>
+            ) : (
+              <Loader />
+            )}
+          </div>
+        </form>
+      </div>
     </>
   );
 }
