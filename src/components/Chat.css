@@ -6,7 +6,6 @@
 .chat__container {
   display: flex;
   flex-direction: column;
-  max-width: 37rem;
   height: 100%;
 }
 
