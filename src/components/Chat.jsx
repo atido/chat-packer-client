@@ -55,13 +55,13 @@ export default function Chat() {
   return (
     <>
       <div className="chat">
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
         {conversation && (
           <ScrollToBottom className="chat__container">
-            {conversation.map((el) => (
+            {conversation?.map((el) => (
               <DynamicComponent key={el.id} element={el} />
             ))}
-            <div style={{ height: "6rem" }}></div>
+            <div style={{ height: "6rem" }} />
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
           </ScrollToBottom>
         )}
       </div>
