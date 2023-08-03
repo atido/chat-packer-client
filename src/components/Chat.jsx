@@ -56,7 +56,7 @@ export default function Chat() {
     <>
       <div className="chat">
         {conversation && (
-          <ScrollToBottom className="chat__container">
+          <ScrollToBottom className="chat__container" followButtonClassName="btn-scroll-to-bottom">
             {conversation?.map((el) => (
               <DynamicComponent key={el.id} element={el} />
             ))}

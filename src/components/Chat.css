@@ -77,3 +77,11 @@
 .btn--disabled .chat__submit-icon {
   color: var(--text2-color);
 }
+
+.btn-scroll-to-bottom {
+  background: url("/arrow-down.svg") center / contain no-repeat;
+  z-index: 150;
+}
+.btn-scroll-to-bottom:hover {
+  background-color: var(--primary-color-hover) !important;
+}
