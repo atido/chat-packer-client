@@ -56,11 +56,11 @@ export default function TripDetailPage() {
               </div>
             </div>
           </div>
-          <section className="tripDetailSection">
+          <section className="tripDetail__section">
             {trip.flight && <FlightDetailCard flight={trip.flight} />}
           </section>
 
-          <section className="tripDetailSection">
+          <section className="tripDetail__section">
             {trip.accommodation && (
               <AccommodationDetailCard
                 accommodation={trip.accommodation}

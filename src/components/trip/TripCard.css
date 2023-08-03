@@ -102,30 +102,55 @@
   margin-top: auto;
 }
 
+.TripCard__cities {
+  display: flex;
+  align-items: flex-end;
+}
+
+.TripCard__cities p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .TripCard__traveler {
+    display: none;
+  }
+}
+
 @media (min-width: 480px) {
+  .TripCard--Bottom {
+    height: 75%;
+  }
+
   .TripCard--Bottom .subtitle {
     font-size: 1.2rem;
   }
+
+  .TripCard__traveler {
+    font-size: 1.2rem;
+  }
+}
+
+.TripCard__icon {
+  font-size: 2rem;
 }
 
 .TripCard--Date {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 1rem;
   padding-bottom: 2px;
 }
 
 @media (min-width: 480px) {
   .TripCard--Date {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .TripCard--Date span {
     margin: 0 2px;
   }
 }
 
-@media (min-width: 768px) {
-  .TripCard--Date {
-    font-size: 0.8rem;
-  }
-}
+
