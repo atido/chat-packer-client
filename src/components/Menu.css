@@ -1,3 +1,7 @@
+.menu {
+  font-size: 1.2rem;
+}
+
 #menuToggle {
   display: block;
   top: 50px;
@@ -21,8 +25,8 @@
 
 #menuToggle input {
   display: block;
-  width: 33px;
-  height: 117px;
+  width: 66px;
+  height: 66px;
   position: absolute;
   top: -7px;
   left: -5px;
@@ -89,4 +93,19 @@
 
 #menuToggle input:checked ~ ul {
   transform: none;
+}
+
+#menu li {
+  margin-bottom: 2rem;
+}
+
+#menu button {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.btnIcon {
+  font-size: 2rem;
+  margin-right: 0.5rem;
 }

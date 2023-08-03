@@ -3,7 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import AccommodationDetailCard from "../components/accommodation/AccommodationDetailCard";
 import FlightDetailCard from "../components/flight/FlightDetailCard";
+import { formatDate } from "../utils/date";
 import "./TripDetailPage.css";
+import "../globals.css"
 
 export default function TripDetailPage() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -34,16 +36,16 @@ export default function TripDetailPage() {
             <div className="trip-detail__baseInfo">
               <div className="trip-detail__cities">
               <Icon className="trip-detail__icon" icon={"streamline:travel-map-flag-navigation-map-maps-flag-gps-location-destination-goal"}/>
-              <h2>{trip.destinationCity}</h2>
+              <h2>{trip.tripInfo.destinationCity}</h2>
               </div>
               <div className="trip-detail__cities">
-              from <h3>{trip.departureCity}</h3>
+              from <h3>{trip.tripInfo.departureCity}</h3>
               </div>
               <div className="trip-detail__dates">
-              {trip.departureDate} - {trip.returnDate}
+              {formatDate(trip.tripInfo.departureDate)} - {formatDate(trip.tripInfo.returnDate)}
               </div>
               <div className="trip-detail__traveler">
-              {trip.adultsNb} x <Icon className="trip-detail__icon"icon={"radix-icons:person"} />
+              {trip.tripInfo.adultsNb} x <Icon className="trip-detail__icon"icon={"radix-icons:person"} />
               </div>
 
             </div>
@@ -55,12 +57,10 @@ export default function TripDetailPage() {
             </div>
           </div>
           <section>
-            <div className="sectionTitle"><Icon className="trip-detail__icon" icon={"ion:airplane-outline"}/>Flight</div>
             {trip.flight && <FlightDetailCard flight={trip.flight} />}
           </section>
 
           <section>
-            <div className="sectionTitle"><Icon className="trip-detail__icon" icon={"material-symbols:hotel-outline"}/>Accomodation</div>
             {trip.accommodation && (
               <AccommodationDetailCard
                 accommodation={trip.accommodation}

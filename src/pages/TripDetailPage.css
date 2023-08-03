@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 3rem;
 }
+
 .trip-detail__header {
   width: 100%;
   display: flex;
@@ -21,7 +23,12 @@
 }
 
 .trip-detail__baseInfo {
-  margin-left: 1rem;
+  margin: 1rem;
+}
+@media (min-width:1024px) {
+  .trip-detail__baseInfo {
+    margin: 2rem;
+  }
 }
 
 .trip-detail__cities {
@@ -35,10 +42,15 @@
 .trip-detail__cities h2 {
   font-size: 2.5rem;
   margin: 0 0.5rem;
+  background: linear-gradient(171deg, #81FEE9 0%, #4CD8DA 19.87%, #0DACC8 52.28%, #0DACC8 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .trip-detail__cities h3 {
   font-size: 1.8rem;
+  margin: 0 0.5rem;
 }
 
 .trip-detail__icon {
@@ -57,17 +69,63 @@
 
 .trip-detail__traveler {
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
 }
 
+@media (max-width: 768px) {
+  .trip-detail__cities {
+    font-size: 1.2rem;
+  }
+  .trip-detail__cities h2 {
+    font-size: 2rem;
+    margin: 0 0.5rem;
+  }
+
+  .trip-detail__cities h3 {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+  }
+
+  .trip-detail__icon {
+    font-size: 2rem;
+    margin-right:0.2rem;
+  }
+
+  .trip-detail__dates {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .trip-detail__traveler {
+    font-size: 1.5rem;
+  }
+} 
+
 .backlink {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
+  margin: 1rem;
 }
-.backlink__img {
+
+@media (min-width: 1024px) {
+  .backlink {
+    margin: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .backlink__img {
+    width: 2rem;
+  }
 }
-.backlink__text {
+
+@media (min-width: 768px) {
+  section {
+    width: 92%;
+    padding: 0;
+    margin: 2rem auto;
+  }
 }
 
 .sectionTitle {
