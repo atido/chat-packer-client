@@ -1,6 +1,7 @@
 .accommodation-detail-card__content {
   padding: 1rem;
 }
+
 .accommodation-detail-card__subcontent {
   display: flex;
   flex-wrap: wrap;
@@ -13,4 +14,14 @@
 
 .accommodation-detail-card__price {
   margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .accommodation-detail-card__amenities {
+    margin-left: 1rem;
+  }
+  .accommodation-detail-card__amenities > div {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
 }

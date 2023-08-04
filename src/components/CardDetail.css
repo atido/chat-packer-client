@@ -20,3 +20,8 @@
   box-shadow: var(--shadow);
   margin-inline: 1rem;
 }
+
+.total {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
