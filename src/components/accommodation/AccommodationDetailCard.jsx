@@ -33,7 +33,7 @@ export default function AccommodationDetailCard({ accommodation, departureDate, 
               </div>
             )}
           </div>
-          <div className="accommodation-detail-card__price">
+          <div className="total">
             Total : {accommodation.price.total} {accommodation.price.currency == "USD" ? "$" : "€"}
           </div>
         </div>

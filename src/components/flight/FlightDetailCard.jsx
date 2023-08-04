@@ -25,7 +25,7 @@ export default function FlightDetailCard({ flight }) {
             </div>
             <FlightInfo flightInfo={flight.back} />
           </div>
-          Total : {flight.price.total} {flight.price.currency == "USD" ? "$" : "€"}
+          <div className="total">Total : {flight.price.total} {flight.price.currency == "USD" ? "$" : "€"}</div>
         </div>
       </div>
     </section>
