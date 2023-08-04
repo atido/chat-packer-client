@@ -50,6 +50,7 @@
   align-items: flex-end;
   justify-content: flex-end;
   height: 67.3%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
@@ -68,8 +69,17 @@
   }
 }
 
-.TripCard--Top:hover .cardGradient {
-  opacity: 0;
+.cardGradient {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(217, 217, 217, 0.00) 0%, rgba(0, 0, 0, 0.30) 100%);
+}
+@media (min-width:480px) {
+  .cardGradient {
+    display: none;
+  }
 }
 
 .TripCard--Top .cardHeading--lg {
@@ -102,12 +112,17 @@
   margin-top: auto;
 }
 
-.TripCard__cities {
+.TripCard__departureCities {
   display: flex;
   align-items: flex-end;
 }
+@media (max-width: 480px) {
+  .TripCard__departureCities {
+    display: none;
+  }
+}
 
-.TripCard__cities p {
+.TripCard__departureCities > p {
   font-size: 1.2rem;
   font-weight: 500;
   margin-left: 0.5rem;
@@ -153,4 +168,7 @@
   }
 }
 
-
+.TripCard--Date span {
+  width: 2rem;
+  text-align: center;
+}

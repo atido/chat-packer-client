@@ -6,12 +6,12 @@ import "./TripCard.css";
 export default function TripCard({ trip }) {
   return (
     <div className="TripCard card">
-      <div className="TripCard--Top" style={{ background: `url(${trip.destinationPhoto})` }}>
+      <div className="TripCard--Top" style={{ backgroundImage: `url(${trip.destinationPhoto})` }}>
         <div className="cardGradient"></div>
         <h3 className="cardHeading--lg">{trip.tripInfo.destinationCity}</h3>
       </div>
       <div className="TripCard--Bottom">
-        <div className="TripCard__cities">
+        <div className="TripCard__departureCities">
           from <p>{trip.tripInfo.departureCity}</p>
         </div>
         <div className="TripCard__traveler">

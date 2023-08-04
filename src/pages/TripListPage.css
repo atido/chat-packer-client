@@ -10,6 +10,30 @@
   }
 }
 
+.trip-list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  
+}
+
+
+.search-bar input {
+  height: 3rem;
+  border-radius: 6px;
+  background: #EDF2F7;
+  font-size: 1rem;
+  border: none;
+  padding: 0.5rem;
+}
+
 .trip-list ul {
   width: 100%;
   display: grid;
