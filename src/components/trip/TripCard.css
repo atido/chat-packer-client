@@ -83,7 +83,8 @@
 }
 
 .TripCard--Top .cardHeading--lg {
-  z-index: 100;
+  font-weight:600;
+  z-index: 10;
 }
 
 @media (min-width: 480px) {
@@ -93,7 +94,7 @@
     top: 0;
     left: 165px;
     color: var(--text1-color);
-    font-weight: 400;
+    font-weight: 600;
     font-size: 1.5rem;
     text-wrap: wrap;
     padding: 2px 8px;
