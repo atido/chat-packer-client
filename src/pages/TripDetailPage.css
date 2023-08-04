@@ -63,7 +63,7 @@
 }
 
 .trip-detail__dates {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
@@ -102,6 +102,13 @@
   }
 }
 
+.tripDetail__headingLinks {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .backlink {
   display: flex;
   align-items: center;
@@ -118,6 +125,20 @@
   .backlink__img {
     width: 2rem;
   }
+}
+
+.tripDetail__headingLinks .btn--delete {
+  padding: 1rem;
+  margin: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .btn-delete {
+    margin: 2rem;
+    font-size: 1.2rem;
+  }
+
+  
 }
 
 @media (min-width: 768px) {
