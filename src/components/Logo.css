@@ -8,6 +8,11 @@
   gap: 0.5rem;
   align-items: center;
 }
+@media (min-width: 1028px) {
+  .logo > h3 {
+    font-size: 2rem;
+  }
+}
 
 .logo__img {
   height: 2.5rem;

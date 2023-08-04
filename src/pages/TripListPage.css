@@ -16,12 +16,49 @@
   justify-content: space-between;
   margin: 1rem;
 }
+@media (min-width:1028px) {
+  .trip-list-heading {
+    margin: 2rem 6rem;
+  }
+}
+@media (min-width:1280px) {
+  .trip-list-heading {
+    margin: 2rem 8rem;
+  }
+}
+
+select {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+}
+
+option {
+  font-size: 1.2rem;
+}
+
+.sort-bar {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2rem;
+}
+@media (max-width: 438px) {
+  .sort-bar {
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  select {
+    margin-left: 0;
+  }
+}
 
 .search-bar {
   position: relative;
   display: flex;
   justify-content: flex-end;
-  
 }
 
 
@@ -32,6 +69,11 @@
   font-size: 1rem;
   border: none;
   padding: 0.5rem;
+}
+@media (min-width: 768px) {
+  .search-bar input {
+    width: 16rem;
+  }
 }
 
 .trip-list ul {
@@ -91,12 +133,6 @@
 }
 
 @media (min-width: 1024px) {
-  .addTrip {
-    left: 92%;
-    width: 10rem;
-    height: 7rem;
-  }
-
   .addTripBtn {
     font-size: 5rem;
   }

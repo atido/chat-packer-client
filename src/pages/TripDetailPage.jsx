@@ -12,6 +12,8 @@ export default function TripDetailPage() {
   const [trip, setTrip] = useState();
   const { id } = useParams();
 
+  
+
   useEffect(() => {
     const getTripDetail = async () => {
       const storedToken = localStorage.getItem("authToken");
@@ -51,8 +53,8 @@ export default function TripDetailPage() {
                 {formatDate(trip.tripInfo.departureDate)} - {formatDate(trip.tripInfo.returnDate)}
               </div>
               <div className="trip-detail__traveler">
-                {trip.tripInfo.adultsNb} x{" "}
-                <Icon className="trip-detail__icon" icon="radix-icons:person" />
+                {trip.tripInfo.adultsNb} travaller{!trip.tripInfo.adultsNb<=1 && <span>s</span>}
+                
               </div>
             </div>
             <div className="backlink">

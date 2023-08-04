@@ -9,6 +9,7 @@ import "./TripListPage.css";
 export default function TripList() {
   const [errorMessage, setErrorMessage] = useState("");
   const [trips, setTrips] = useState([]);
+  const [sortedTrips, setSortedTrips] = useState([]);
   const [query, setQuery] = useState("");
   const [sortOption, setSortOption] = useState("date");
 
@@ -22,6 +23,10 @@ export default function TripList() {
     getAllTrips();
   }, []);
 
+  useEffect(() => {
+    setSortedTrips(sortTrips(trips));
+  }, [sortOption, trips]);
+
   function handleSearch(event) {
     setQuery(event.target.value);
   }
@@ -32,9 +37,9 @@ export default function TripList() {
 
   function sortTrips(trips) {
     if (sortOption === "date") {
-      return [...trips].sort((a, b) => new Date(a.trip.tripInfo.departureDate) - new Date(b.trip.tripInfo.departureDate));
+      return [...trips].sort((a, b) => new Date(a.tripInfo.departureDate) - new Date(b.tripInfo.departureDate));
     } else if (sortOption === "destination") {
-      return [...trips].sort((a, b) => a.trip.tripInfo.destinationCity.localeCompare(b.trip.tripInfo.destinationCity));
+      return [...trips].sort((a, b) => a.tripInfo.destinationCity.localeCompare(b.tripInfo.destinationCity));
     }
     return trips;
   }
@@ -43,7 +48,7 @@ export default function TripList() {
     <div className="trip-list-display">
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <div className="trip-list-heading">
-        <div>
+        <div className="sort-bar">
           Sort by: 
           <select value={sortOption} onChange={handleSort}>
             <option value="date">Departure Date</option>
@@ -52,10 +57,10 @@ export default function TripList() {
         </div>
         <SearchBar value={query} handleSearch={handleSearch} />
       </div>
-      {trips.length>0 && (
+      {sortedTrips.length>0 && (
         <div className="trip-list">
           <ul>
-            {trips
+            {sortedTrips
             .filter((trip) => trip.tripInfo.destinationCity.toLowerCase().includes(query.toLowerCase()))
             .map((trip) => (
               <li key={trip._id}>
