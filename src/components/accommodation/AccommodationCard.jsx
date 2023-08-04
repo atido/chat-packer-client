@@ -28,13 +28,15 @@ export default function AccommodationCard({ accommodation }) {
             <h4>{accommodation.rating}</h4>
           </span>
         </div>
-        <div className="tag-group">
-          {accommodation.amenities?.map((amenity) => (
-            <div key={amenity} className="tag">
-              {amenity}
-            </div>
-          ))}
-        </div>
+        {accommodation.amenities && (
+          <div className="tag-group">
+            {accommodation.amenities.slice(0, 3).map((amenity) => (
+              <div key={amenity} className="tag">
+                {amenity}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

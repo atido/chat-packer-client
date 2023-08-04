@@ -23,13 +23,15 @@ export default function AccommodationDetailCard({ accommodation, departureDate, 
               departureDate={departureDate}
               returnDate={returnDate}
             />
-            <div className="tag-group accommodation-detail-card__amenities">
-              {accommodation.amenities.map((amenity) => (
-                <div key={amenity} className="tag">
-                  {amenity}
-                </div>
-              ))}
-            </div>
+            {accommodation.amenities && (
+              <div className="tag-group accommodation-detail-card__amenities">
+                {accommodation.amenities.map((amenity) => (
+                  <div key={amenity} className="tag">
+                    {amenity}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           <div className="accommodation-detail-card__price">
             Total : {accommodation.price.total} {accommodation.price.currency == "USD" ? "$" : "€"}
