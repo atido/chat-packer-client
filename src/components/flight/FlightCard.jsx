@@ -12,7 +12,7 @@ export default function FlightCard({ flight }) {
           <div>{`${flight.price.total} ${flight.price.currency == "USD" ? "$" : "€"}`}</div>
         </div>
         <FlightTicket flightInfo={flight.go} />
-        <FlightTicket flightInfo={flight.back} isReturn={true} />
+        <FlightTicket flightInfo={flight.back} />
       </div>
       <div className="flightCard__bottom">
         <div className="cardHeading--Black">

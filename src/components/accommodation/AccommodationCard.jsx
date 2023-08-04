@@ -18,7 +18,6 @@ export default function AccommodationCard({ accommodation }) {
           <div>{`${accommodation.price.total} ${
             accommodation.price.currency == "USD" ? "$" : "€"
           }`}</div>
-          <h6>/night</h6>
         </div>
       </div>
       <div className="AccomCard--Bottom">

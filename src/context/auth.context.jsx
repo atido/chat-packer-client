@@ -53,7 +53,6 @@ function AuthProviderWrapper(props) {
     localStorage.removeItem("authToken");
     setUser(null);
     setIsLoggedIn(false);
-    console.log("c nul");
     navigate("/auth/login");
   }
   window.logout = logout;
