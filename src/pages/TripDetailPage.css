@@ -108,6 +108,11 @@
   flex-direction: column;
   align-items: flex-end;
 }
+@media (max-width:390px) {
+  .tripDetail__headingLinks {
+    width: 50%;
+  }
+}
 
 .backlink {
   display: flex;
@@ -129,12 +134,12 @@
 
 .tripDetail__headingLinks .btn--delete {
   padding: 1rem;
-  margin: 1rem;
+  margin-right: 1rem;
 }
 
 @media (min-width: 1024px) {
   .btn-delete {
-    margin: 2rem;
+    margin-right: 2rem;
     font-size: 1.2rem;
   }
 
