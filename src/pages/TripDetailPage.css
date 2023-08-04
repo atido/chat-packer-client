@@ -15,8 +15,8 @@
 .trip-detail__headerImg {
   width: 100%;
   height: 20vh;
-  
-  background-repeat: center;
+
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 1rem;
@@ -25,7 +25,7 @@
 .trip-detail__baseInfo {
   margin: 1rem;
 }
-@media (min-width:1024px) {
+@media (min-width: 1024px) {
   .trip-detail__baseInfo {
     margin: 2rem;
   }
@@ -42,7 +42,7 @@
 .trip-detail__cities h2 {
   font-size: 2.5rem;
   margin: 0 0.5rem;
-  background: linear-gradient(171deg, #81FEE9 0%, #4CD8DA 19.87%, #0DACC8 52.28%, #0DACC8 100%);
+  background: linear-gradient(171deg, #81fee9 0%, #4cd8da 19.87%, #0dacc8 52.28%, #0dacc8 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -55,7 +55,7 @@
 
 .trip-detail__icon {
   font-size: 3rem;
-  margin-right:0.5rem;
+  margin-right: 0.5rem;
 }
 
 .trip-detail__destination h2 {
@@ -89,7 +89,7 @@
 
   .trip-detail__icon {
     font-size: 2rem;
-    margin-right:0.2rem;
+    margin-right: 0.2rem;
   }
 
   .trip-detail__dates {
@@ -100,7 +100,7 @@
   .trip-detail__traveler {
     font-size: 1.5rem;
   }
-} 
+}
 
 .backlink {
   display: flex;
