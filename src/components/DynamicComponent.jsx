@@ -1,4 +1,5 @@
 import React from "react";
+import EndButtons from "./EndButtons";
 import AccommodationCardGroup from "./accommodation/AccommodationCardGroup";
 import FlightCardGroup from "./flight/FlightCardGroup";
 import Thread from "./thread/Thread";
@@ -9,6 +10,7 @@ const Components = {
   thread_error: ThreadError,
   flightCardGroup: FlightCardGroup,
   accommodationCardGroup: AccommodationCardGroup,
+  endButtons: EndButtons,
 };
 
 const DynamicComponent = ({ element }) => {

@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react";
 import "../CardDetail.css";
 import "./AccommodationDetailCard.css";
 import AccommodationInfo from "./AccommodationInfo";
@@ -6,8 +7,8 @@ export default function AccommodationDetailCard({ accommodation, departureDate, 
   return (
     <section className="accommodation-detail-card detail-card">
       <div className="detail-card__title">
-        <img src="/accommodation.svg" alt="accommodation" />
-        <h4>Accommodation</h4>
+        <Icon className="trip-detail__icon" icon="mdi:bed-outline" />
+        <h2>Accommodation</h2>
       </div>
       <div className="detail-card__container">
         <div className="accommodation-detail-card__content">

@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react";
 import "../CardDetail.css";
 import "./FlightDetailCard.css";
 import FlightInfo from "./FlightInfo";
@@ -7,8 +8,8 @@ export default function FlightDetailCard({ flight }) {
   return (
     <section className="flight-detail-card detail-card">
       <div className="detail-card__title">
-        <img src="/flight.svg" alt="plane" />
-        <h4>Flight</h4>
+        <Icon className="trip-detail__icon" icon="fluent-mdl2:airplane" />
+        <h2>Flight</h2>
       </div>
       <div className="detail-card__container">
         <div className="flight-detail-card__content">
