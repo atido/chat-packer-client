@@ -119,6 +119,8 @@ h6 {
 
 .btn-group {
   display: flex;
+  justify-content: center;
+  margin-block: 0.5rem;
   gap: 1rem;
 }
 
@@ -166,6 +168,10 @@ h6 {
 
 .btn--secondary:hover {
   background: var(--secondary-color-hover);
+}
+
+.btn--rounded {
+  border-radius: 20px;
 }
 
 .btn--disabled {

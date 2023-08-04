@@ -1,11 +1,11 @@
+import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Icon } from "@iconify/react";
 import AccommodationDetailCard from "../components/accommodation/AccommodationDetailCard";
 import FlightDetailCard from "../components/flight/FlightDetailCard";
+import "../globals.css";
 import { formatDate } from "../utils/date";
 import "./TripDetailPage.css";
-import "../globals.css"
 
 export default function TripDetailPage() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -31,23 +31,29 @@ export default function TripDetailPage() {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {trip && (
         <div className="trip-detail__container">
-          <div className="trip-detail__headerImg" style={{ backgroundImage: `url(${trip.destinationPhoto})` }}></div>
+          <div
+            className="trip-detail__headerImg"
+            style={{ backgroundImage: `url(${trip.destinationPhoto})` }}
+          ></div>
           <div className="trip-detail__header">
             <div className="trip-detail__baseInfo">
               <div className="trip-detail__cities">
-              <Icon className="trip-detail__icon" icon={"streamline:travel-map-flag-navigation-map-maps-flag-gps-location-destination-goal"}/>
-              <h2>{trip.tripInfo.destinationCity}</h2>
+                <Icon
+                  className="trip-detail__icon"
+                  icon="streamline:travel-map-flag-navigation-map-maps-flag-gps-location-destination-goal"
+                />
+                <h2>{trip.tripInfo.destinationCity}</h2>
               </div>
               <div className="trip-detail__cities">
-              from <h3>{trip.tripInfo.departureCity}</h3>
+                from <h3>{trip.tripInfo.departureCity}</h3>
               </div>
               <div className="trip-detail__dates">
-              {formatDate(trip.tripInfo.departureDate)} - {formatDate(trip.tripInfo.returnDate)}
+                {formatDate(trip.tripInfo.departureDate)} - {formatDate(trip.tripInfo.returnDate)}
               </div>
               <div className="trip-detail__traveler">
-              {trip.tripInfo.adultsNb} x <Icon className="trip-detail__icon"icon={"radix-icons:person"} />
+                {trip.tripInfo.adultsNb} x{" "}
+                <Icon className="trip-detail__icon" icon="radix-icons:person" />
               </div>
-
             </div>
             <div className="backlink">
               <img className="backlink__img" src="/back-arrow.svg" alt="back arrow" />
