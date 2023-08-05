@@ -10,6 +10,7 @@
   --text2-color: #707070;
   --text3-color: #8d8d8d;
   --hyperlink-color: #2081e4;
+  --delteBtn-color:var(--error-color);
   --nav-bar-color: #6faac1;
   --main-bg-color: #f8fdff;
   --tag-cloud-bg-color: #edf2f7;
@@ -185,6 +186,28 @@ h6 {
 .btn--disabled:hover {
   background-color: transparent;
   cursor: not-allowed;
+}
+
+.btn--delete {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--delteBtn-color);
+  border: none;
+}
+
+.btn--delete__icon {
+  font-size: 1.5rem;
+}
+@media (min-width: 768px) {
+  .btn--delete__icon {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .btn--delete__icon {
+    font-size: 1.5rem;
+  }
 }
 
 .container {

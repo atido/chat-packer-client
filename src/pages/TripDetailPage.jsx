@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import myaxios from "../../myaxios";
 import AccommodationDetailCard from "../components/accommodation/AccommodationDetailCard";
 import FlightDetailCard from "../components/flight/FlightDetailCard";
 import "../globals.css";
@@ -11,7 +12,7 @@ export default function TripDetailPage() {
   const [errorMessage, setErrorMessage] = useState("");
   const [trip, setTrip] = useState();
   const { id } = useParams();
-
+  const navigate = useNavigate()
   
 
   useEffect(() => {
@@ -27,6 +28,15 @@ export default function TripDetailPage() {
     };
     getTripDetail();
   }, [id]);
+
+  function deleteTrip () {                    
+    myaxios
+      .delete(`${import.meta.env.VITE_BACKEND_HOST}/api/trips/${id}`)
+      .then(() => {
+        navigate("/trips");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -57,12 +67,16 @@ export default function TripDetailPage() {
                 
               </div>
             </div>
-            <div className="backlink">
-              <img className="backlink__img" src="/back-arrow.svg" alt="back arrow" />
-              <div className="backlink__text">
-                <Link to="/trips">Back to trip list</Link>
+            <div className="tripDetail__headingLinks">
+              <div className="backlink">
+                <img className="backlink__img" src="/back-arrow.svg" alt="back arrow" />
+                <div className="backlink__text">
+                  <Link to="/trips">Back to trip list</Link>
+                </div>
               </div>
+              <button className="btn--delete" onClick={deleteTrip}><Icon className="btn--delete__icon" icon={"material-symbols:delete-outline"} />Delete Trip</button>
             </div>
+            
           </div>
           <section className="tripDetail__section">
             {trip.flight && <FlightDetailCard flight={trip.flight} />}
