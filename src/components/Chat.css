@@ -13,6 +13,9 @@
   /* hide scrollbar keep functionnality */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .chat__container :first-child::-webkit-scrollbar {
