@@ -2,8 +2,8 @@ import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import myaxios from "../../myaxios";
-import SearchBar from "../components/SearchBar";
 import TripCard from "../../src/components/trip/TripCard.jsx";
+import SearchBar from "../components/SearchBar";
 import "./TripListPage.css";
 
 export default function TripList() {
@@ -37,9 +37,13 @@ export default function TripList() {
 
   function sortTrips(trips) {
     if (sortOption === "date") {
-      return [...trips].sort((a, b) => new Date(a.tripInfo.departureDate) - new Date(b.tripInfo.departureDate));
+      return [...trips].sort(
+        (a, b) => new Date(a.tripInfo.departureDate) - new Date(b.tripInfo.departureDate)
+      );
     } else if (sortOption === "destination") {
-      return [...trips].sort((a, b) => a.tripInfo.destinationCity.localeCompare(b.tripInfo.destinationCity));
+      return [...trips].sort((a, b) =>
+        a.tripInfo.destinationCity.localeCompare(b.tripInfo.destinationCity)
+      );
     }
     return trips;
   }
@@ -49,7 +53,7 @@ export default function TripList() {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <div className="trip-list-heading">
         <div className="sort-bar">
-          Sort by: 
+          Sort by:
           <select value={sortOption} onChange={handleSort}>
             <option value="date">Departure Date</option>
             <option value="destination">Destination City</option>
@@ -57,18 +61,20 @@ export default function TripList() {
         </div>
         <SearchBar value={query} handleSearch={handleSearch} />
       </div>
-      {sortedTrips.length>0 && (
+      {sortedTrips.length > 0 && (
         <div className="trip-list">
           <ul>
             {sortedTrips
-            .filter((trip) => trip.tripInfo.destinationCity.toLowerCase().includes(query.toLowerCase()))
-            .map((trip) => (
-              <li key={trip._id}>
-                <Link className="hyperlink--no-decoration" to={`/trips/${trip._id}`}>
-                  <TripCard trip={trip} />
-                </Link>
-              </li>
-            ))}
+              .filter((trip) =>
+                trip.tripInfo.destinationCity.toLowerCase().includes(query.toLowerCase())
+              )
+              .map((trip) => (
+                <li key={trip._id}>
+                  <Link className="hyperlink--no-decoration" to={`/trips/${trip._id}`}>
+                    <TripCard trip={trip} />
+                  </Link>
+                </li>
+              ))}
           </ul>
         </div>
       )}

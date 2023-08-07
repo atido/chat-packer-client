@@ -34,6 +34,16 @@ export default function Chat() {
 
   const handleSubmit = async (e) => {
     if (e) e.preventDefault();
+    setConversation([
+      ...conversation,
+      {
+        body: {
+          role: "user",
+          content: message,
+        },
+        component: "thread",
+      },
+    ]);
     setIsLoading(true);
     setMessage("");
     setErrorMessage("");

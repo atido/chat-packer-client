@@ -1,14 +1,12 @@
 import { Icon } from "@iconify/react";
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import myaxios from "../../myaxios";
 import { AuthContext } from "../context/auth.context";
 import "./Menu.css";
 
 export default function () {
-  //revoir note
-  const { user, logout } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { logout } = useContext(AuthContext);
 
   const [errorMessage, setErrorMessage] = useState("");
   const [trips, setTrips] = useState([]);

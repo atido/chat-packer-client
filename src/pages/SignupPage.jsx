@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 import myaxios from "../../myaxios";
 import "../globals.css";
 import "./SignupLoginPage.css";
@@ -12,18 +13,15 @@ export default function SignupPage(props) {
 
   const navigate = useNavigate();
 
+  const { signup } = useContext(AuthContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { username, email, password };
+    setErrorMessage("");
 
-    myaxios
-      .post(`${import.meta.env.VITE_BACKEND_HOST}/api/users/register`, requestBody)
+    signup(username, email, password)
       .then(() => {
-        setUsername("");
-        setEmail("");
-        setPassword("");
-
-        navigate("/auth/login");
+        navigate("/trips");
       })
       .catch((err) => setErrorMessage(err.message));
   };
