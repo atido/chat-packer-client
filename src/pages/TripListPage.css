@@ -84,7 +84,7 @@ option {
   margin: auto;
 }
 
-@media (min-width: 480px) and (max-width: 768px) {
+@media (min-width: 480px) and (max-width: 769px) {
   .trip-list ul {
     grid-template-columns: 1fr;
   }
