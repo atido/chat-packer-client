@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { Navigate } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
+import { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
 
 function IsAnon({ children }) {
   const { isLoggedIn, isLoading } = useContext(AuthContext);
@@ -9,7 +9,6 @@ function IsAnon({ children }) {
   if (isLoading) return <p>Loading ...</p>;
 
   if (isLoggedIn) {
-    // If the user is logged in, navigate to the profile page
     return <Navigate to="/trips" />;
   } else {
     // If the user is not logged in, allow to see the page

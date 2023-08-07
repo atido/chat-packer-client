@@ -1,25 +1,14 @@
-import { Icon } from "@iconify/react";
-import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import myaxios from "../../myaxios";
-import { AuthContext } from "../context/auth.context";
-import "./Menu.css";
+import { Icon } from '@iconify/react';
+import { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
+import { TripsContext } from '../context/trips.context';
+import './Menu.css';
 
 export default function () {
   const { logout } = useContext(AuthContext);
-
-  const [errorMessage, setErrorMessage] = useState("");
-  const [trips, setTrips] = useState([]);
-
-  useEffect(() => {
-    const getAllTrips = () => {
-      myaxios
-        .get(`${import.meta.env.VITE_BACKEND_HOST}/api/trips`)
-        .then((response) => setTrips(response.data))
-        .catch((error) => setErrorMessage(error.message));
-    };
-    getAllTrips();
-  }, []);
+  const { trips } = useContext(TripsContext);
+  const [errorMessage, setErrorMessage] = useState('');
 
   return (
     <div className="menu">
@@ -30,7 +19,7 @@ export default function () {
           <span></span>
           <span></span>
           <ul id="menu">
-            {trips.map((trip) => (
+            {trips.map(trip => (
               <li key={trip._id}>
                 <Link className="hyperlink--no-decoration" to={`/trips/${trip._id}`}>
                   {trip.tripInfo.destinationCity}
@@ -38,14 +27,13 @@ export default function () {
               </li>
             ))}
             <button
-              onClick={(e) => {
+              onClick={e => {
                 logout();
               }}
             >
-              <Icon className="btnIcon" icon={"tabler:logout-2"} />
+              <Icon className="btnIcon" icon={'tabler:logout-2'} />
               Logout
             </button>
-            {/* <span>{user && user.username}</span> */}
           </ul>
         </div>
       </div>

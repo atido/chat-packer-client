@@ -34,7 +34,6 @@ export default function ProfileEditPage() {
     return myaxios
       .put(`/api/user`, { username, email, password })
       .then((res) => {
-        console.log(res.data);
         setUser(res.data.user);
         refreshUser();
       })
@@ -44,12 +43,10 @@ export default function ProfileEditPage() {
   const handleFileUpload = (e) => {
     const uploadData = new FormData();
     uploadData.append("avatar", e.target.files[0]);
-
     //
     // 1. update avatar
     // 2. refresh user (with latest DB infos)
     //
-
     service
       .uploadImage(uploadData)
       .then((data) => {
@@ -109,7 +106,6 @@ export default function ProfileEditPage() {
               className="input--editForm"
               type="password"
               name="password"
-              
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
