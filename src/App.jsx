@@ -9,29 +9,14 @@ import TripDetailPage from './pages/TripDetailPage';
 import TripListPage from './pages/TripListPage';
 import ProfileEditPage from './pages/ProfileEditPage';
 import IsPrivate from './components/IsPrivate';
-import IsAnon from './components/IsAnon';
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route
-          path="/auth/signup"
-          element={
-            <IsAnon>
-              <SignupPage />
-            </IsAnon>
-          }
-        />
-        <Route
-          path="/auth/login"
-          element={
-            <IsAnon>
-              <LoginPage />
-            </IsAnon>
-          }
-        />
+        <Route path="/auth/signup" element={<SignupPage />} />
+        <Route path="/auth/login" element={<LoginPage />} />
 
         <Route
           path="/trips"
