@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function EditableField({ label, type, value, onChange, isEditing = false }) {
+export default function EditableField({ label, type, value, onChange, isEditing = true }) {
   const LabelTag = isEditing ? 'label' : 'p';
   return (
     <div className="info">

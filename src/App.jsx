@@ -7,7 +7,6 @@ import ProfilePage from './pages/ProfilePage';
 import SignupPage from './pages/SignupPage';
 import TripDetailPage from './pages/TripDetailPage';
 import TripListPage from './pages/TripListPage';
-import ProfileEditPage from './pages/ProfileEditPage';
 import IsPrivate from './components/IsPrivate';
 
 function App() {

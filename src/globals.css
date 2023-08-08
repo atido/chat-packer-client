@@ -67,7 +67,7 @@ h6 {
 
 .subtitle {
   display: inherit;
-  color: var(--text2-color);
+  color: var(--text1-color);
   font-size: 1rem;
 }
 
