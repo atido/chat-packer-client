@@ -1,34 +1,24 @@
 .trip-detail__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-bottom: 3rem;
 }
 
 .trip-detail__header {
-  width: 100%;
+  margin: 1rem;
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
+}
+@media (min-width: 1024px) {
+  .trip-detail__header {
+    margin: 2rem;
+  }
 }
 
 .trip-detail__headerImg {
   width: 100%;
   height: 20vh;
-
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  margin-bottom: 1rem;
-}
-
-.trip-detail__baseInfo {
-  margin: 1rem;
-}
-@media (min-width: 1024px) {
-  .trip-detail__baseInfo {
-    margin: 2rem;
-  }
 }
 
 .trip-detail__cities {
@@ -108,42 +98,20 @@
   flex-direction: column;
   align-items: flex-end;
 }
-@media (max-width:390px) {
+@media (max-width: 390px) {
   .tripDetail__headingLinks {
     width: 50%;
   }
 }
 
-.backlink {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin: 1rem;
-}
-
-@media (min-width: 1024px) {
-  .backlink {
-    margin: 2rem;
-    font-size: 1.2rem;
-  }
-
-  .backlink__img {
-    width: 2rem;
-  }
-}
-
 .tripDetail__headingLinks .btn--delete {
-  padding: 1rem;
-  margin-right: 1rem;
+  margin-top: 0.5rem;
 }
 
 @media (min-width: 1024px) {
-  .btn-delete {
-    margin-right: 2rem;
+  .tripDetail__headingLinks .btn--delete {
     font-size: 1.2rem;
   }
-
-  
 }
 
 @media (min-width: 768px) {

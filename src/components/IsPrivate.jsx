@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
+import PageLoader from './loader/PageLoader';
 
 function IsPrivate({ children }) {
   const { isLoggedIn, isLoading, refreshUser } = useContext(AuthContext);
@@ -9,7 +10,7 @@ function IsPrivate({ children }) {
   }, []);
 
   // If the authentication is still loading
-  if (isLoading) return <p>Loading ...</p>;
+  if (isLoading) return <PageLoader />;
 
   if (!isLoggedIn) {
     console.log('is not logged in > is loading', isLoading);

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Pacifico&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Pacifico&display=swap');
 
 :root {
   --primary-color: #065666;
@@ -10,12 +10,14 @@
   --text2-color: #707070;
   --text3-color: #8d8d8d;
   --hyperlink-color: #2081e4;
-  --delteBtn-color:var(--error-color);
+  --deleteBtn-color: var(--error-color);
   --nav-bar-color: #6faac1;
   --main-bg-color: #f8fdff;
   --tag-cloud-bg-color: #edf2f7;
   --flight-ticket-bg-color: rgba(63, 107, 124, 0.5);
   --shadow: 0px 2px 4px 0px rgba(31, 57, 55, 0.26);
+  --message-user-color: rgba(255, 251, 239, 0.75);
+  --message-assistant-color: rgba(206, 163, 100, 0.85);
   --swiper-theme-color: var(--primary-color);
 }
 
@@ -32,13 +34,13 @@ button {
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   background-color: var(--main-bg-color);
 }
 
 h1 {
   font-size: 3rem;
-  font-family: "Pacifico", cursive;
+  font-family: 'Pacifico', cursive;
   font-weight: 300;
 }
 @media (max-width: 390px) {
@@ -90,7 +92,6 @@ h6 {
 .backLink {
   display: flex;
   align-items: center;
-  margin: 1rem auto 0 1rem;
 }
 @media (min-width: 1024px) {
   .backLink {
@@ -109,14 +110,6 @@ h6 {
 
 .backLink:hover {
   color: var(--primary-color-hover);
-}
-
-@media (min-width: 768px) {
-  .backLink {
-    display: flex;
-    align-items: center;
-    margin: 1rem auto 0 1rem;
-  }
 }
 
 .btn-group {
@@ -192,7 +185,7 @@ h6 {
   display: flex;
   align-items: center;
   font-size: 1rem;
-  color: var(--delteBtn-color);
+  color: var(--deleteBtn-color);
   border: none;
 }
 

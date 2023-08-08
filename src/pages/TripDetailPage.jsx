@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react';
 import { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import myaxios from '../../myaxios';
 import AccommodationDetailCard from '../components/accommodation/AccommodationDetailCard';
 import FlightDetailCard from '../components/flight/FlightDetailCard';
@@ -9,6 +9,7 @@ import { formatDate } from '../utils/date';
 import './TripDetailPage.css';
 import { TripsContext } from '../context/trips.context';
 import { useContext } from 'react';
+import BackLink from '../components/BackLink';
 
 export default function TripDetailPage() {
   const [errorMessage, setErrorMessage] = useState('');
@@ -57,25 +58,23 @@ export default function TripDetailPage() {
               </div>
             </div>
             <div className="tripDetail__headingLinks">
-              <div className="backlink">
-                <img className="backlink__img" src="/back-arrow.svg" alt="back arrow" />
-                <div className="backlink__text">
-                  <Link to="/trips">Back to trip list</Link>
-                </div>
-              </div>
+              <BackLink />
               <button className="btn--delete" onClick={deleteTrip}>
                 <Icon className="btn--delete__icon" icon={'material-symbols:delete-outline'} />
                 Delete Trip
               </button>
             </div>
           </div>
-          <section className="tripDetail__section">{trip.flight && <FlightDetailCard flight={trip.flight} />}</section>
-
-          <section className="tripDetail__section">
-            {trip.accommodation && (
+          {trip.flight && (
+            <section className="tripDetail__section">
+              <FlightDetailCard flight={trip.flight} />
+            </section>
+          )}
+          {trip.accommodation && (
+            <section className="tripDetail__section">
               <AccommodationDetailCard accommodation={trip.accommodation} departureDate={trip.tripInfo.departureDate} returnDate={trip.tripInfo.returnDate} />
-            )}
-          </section>
+            </section>
+          )}
         </div>
       )}
     </>
