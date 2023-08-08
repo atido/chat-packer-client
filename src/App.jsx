@@ -53,14 +53,6 @@ function App() {
           }
         >
           <Route
-            path="/profile/edit"
-            element={
-              <IsPrivate>
-                <ProfileEditPage />
-              </IsPrivate>
-            }
-          />
-          <Route
             index
             element={
               <IsPrivate>

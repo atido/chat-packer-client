@@ -2,8 +2,8 @@ import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import myaxios from '../../myaxios';
-import '../globals.css';
 import './SignupLoginPage.css';
+import '../components/Form.css';
 
 export default function SignupPage(props) {
   const [username, setUsername] = useState('');

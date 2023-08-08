@@ -4,7 +4,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import myaxios from '../../myaxios';
 import AccommodationDetailCard from '../components/accommodation/AccommodationDetailCard';
 import FlightDetailCard from '../components/flight/FlightDetailCard';
-import '../globals.css';
 import { formatDate } from '../utils/date';
 import './TripDetailPage.css';
 import { TripsContext } from '../context/trips.context';
