@@ -3,6 +3,12 @@
   background: url('/bg.png') center/cover;
 }
 
+@media (min-width: 1024px) {
+  .signupLoginDisplay {
+    background: url('/desktopBg.png') center/cover;
+  }
+}
+
 .signupLogin__container {
   position: absolute;
   top: 20%;
@@ -10,22 +16,22 @@
   transform: translate(-50%, -20%);
 }
 
-@media (min-width: 1024px) {
-  .homepage {
-    background: url('/desktopBg.png') center/cover;
-  }
-}
-
 .heading--SignupLogin {
   color: white;
   font-weight: 300;
   margin-bottom: 1rem;
+  max-width: 20rem;
 }
 
 .heading--SignupLogin > h2 {
   font-weight: 300;
   margin-bottom: 0.5rem;
-  max-width: 25rem;
+}
+
+@media (min-width: 1024px) {
+  .heading--SignupLogin {
+    width: 25rem;
+  }
 }
 
 .container--SignupLogin {

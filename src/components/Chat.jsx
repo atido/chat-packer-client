@@ -1,7 +1,8 @@
 import { Icon } from '@iconify/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import myaxios from '../../myaxios';
+import { formatMessageForConversation } from '../utils/conversation';
 import './Chat.css';
 import DynamicComponent from './DynamicComponent';
 import MessageLoader from './loader/MessageLoader';
@@ -11,19 +12,23 @@ export default function Chat() {
   const [errorMessage, setErrorMessage] = useState('');
   const [conversation, setConversation] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const textAreaRef = useRef(null);
   const isMessageInputEmpty = message.trim() === '';
 
   useEffect(() => {
-    const initConversation = async () => {
-      myaxios
-        .post(`${import.meta.env.VITE_BACKEND_HOST}/api/chat/events`, {
-          type: 'INIT',
-        })
-        .then(response => setConversation(response.data))
-        .catch(err => setErrorMessage(err.message));
-    };
-    initConversation();
+    myaxios
+      .post(`/api/chat/events`, { type: 'INIT' })
+      .then(response => setConversation(response.data))
+      .catch(err => setErrorMessage(err.message));
   }, []);
+
+  useEffect(() => {
+    if (textAreaRef.current) {
+      if (message === '') textAreaRef.current.style.height = textAreaRef.current.style.minHeight;
+      const scrollHeight = textAreaRef.current.scrollHeight;
+      textAreaRef.current.style.height = scrollHeight + 'px';
+    }
+  }, [message]);
 
   const handleKeyDown = e => {
     if (e.key === 'Enter') {
@@ -34,32 +39,16 @@ export default function Chat() {
 
   const handleSubmit = async e => {
     if (e) e.preventDefault();
-    setConversation([
-      ...conversation,
-      {
-        body: {
-          role: 'user',
-          content: message,
-        },
-        component: 'thread',
-      },
-    ]);
+    setConversation([...conversation, formatMessageForConversation(message)]);
     setIsLoading(true);
     setMessage('');
     setErrorMessage('');
 
     myaxios
-      .post(`${import.meta.env.VITE_BACKEND_HOST}/api/chat/events`, {
-        type: 'MESSAGE',
-        message,
-      })
+      .post(`/api/chat/events`, { type: 'MESSAGE', message })
       .then(response => setConversation(response.data))
-      .catch(err => {
-        setErrorMessage(err.message);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+      .catch(err => setErrorMessage(err.message))
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -79,14 +68,13 @@ export default function Chat() {
           <div className="chat__message-zone">
             <textarea
               className="chat__message"
+              ref={textAreaRef}
               value={message}
               onChange={e => setMessage(e.target.value)}
               onKeyDown={handleKeyDown}
-              name="message"
-              id="message"
               cols="1"
-              rows="1"
               placeholder="Send a message"
+              style={{ minHeight: '24px' }}
             />
 
             {!isLoading ? (
