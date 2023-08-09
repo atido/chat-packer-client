@@ -1,55 +1,54 @@
-import { Icon } from "@iconify/react";
-import { useEffect, useState } from "react";
-import ScrollToBottom from "react-scroll-to-bottom";
-import myaxios from "../../myaxios";
-import "./Chat.css";
-import DynamicComponent from "./DynamicComponent";
-import Loader from "./Loader";
+import { Icon } from '@iconify/react';
+import { useEffect, useRef, useState } from 'react';
+import ScrollToBottom from 'react-scroll-to-bottom';
+import myaxios from '../../myaxios';
+import { formatMessageForConversation } from '../utils/conversation';
+import './Chat.css';
+import DynamicComponent from './DynamicComponent';
+import MessageLoader from './loader/MessageLoader';
 
 export default function Chat() {
-  const [message, setMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [message, setMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [conversation, setConversation] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const isMessageInputEmpty = message.trim() === "";
+  const textAreaRef = useRef(null);
+  const isMessageInputEmpty = message.trim() === '';
 
   useEffect(() => {
-    const initConversation = async () => {
-      myaxios
-        .post(`${import.meta.env.VITE_BACKEND_HOST}/api/chat/events`, {
-          type: "INIT",
-        })
-        .then((response) => setConversation(response.data))
-        .catch((err) => setErrorMessage(err.message));
-    };
-    initConversation();
+    myaxios
+      .post(`/api/chat/events`, { type: 'INIT' })
+      .then(response => setConversation(response.data))
+      .catch(err => setErrorMessage(err.message));
   }, []);
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+  useEffect(() => {
+    if (textAreaRef.current) {
+      if (message === '') textAreaRef.current.style.height = textAreaRef.current.style.minHeight;
+      const scrollHeight = textAreaRef.current.scrollHeight;
+      textAreaRef.current.style.height = scrollHeight + 'px';
+    }
+  }, [message]);
+
+  const handleKeyDown = e => {
+    if (e.key === 'Enter') {
       e.preventDefault();
       if (!isMessageInputEmpty) handleSubmit();
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     if (e) e.preventDefault();
+    setConversation([...conversation, formatMessageForConversation(message)]);
     setIsLoading(true);
-    setMessage("");
-    setErrorMessage("");
+    setMessage('');
+    setErrorMessage('');
 
     myaxios
-      .post(`${import.meta.env.VITE_BACKEND_HOST}/api/chat/events`, {
-        type: "MESSAGE",
-        message,
-      })
-      .then((response) => setConversation(response.data))
-      .catch((err) => {
-        setErrorMessage(err.message);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+      .post(`/api/chat/events`, { type: 'MESSAGE', message })
+      .then(response => setConversation(response.data))
+      .catch(err => setErrorMessage(err.message))
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -57,7 +56,7 @@ export default function Chat() {
       <div className="chat">
         {conversation && (
           <ScrollToBottom className="chat__container" followButtonClassName="btn-scroll-to-bottom">
-            {conversation?.map((el) => (
+            {conversation?.map(el => (
               <DynamicComponent key={el.id} element={el} />
             ))}
             {errorMessage && <p className="error-message">{errorMessage}</p>}
@@ -69,28 +68,25 @@ export default function Chat() {
           <div className="chat__message-zone">
             <textarea
               className="chat__message"
+              ref={textAreaRef}
               value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              onChange={e => setMessage(e.target.value)}
               onKeyDown={handleKeyDown}
-              name="message"
-              id="message"
               cols="1"
-              rows="1"
               placeholder="Send a message"
+              style={{ minHeight: '24px' }}
             />
 
             {!isLoading ? (
               <button
                 type="submit"
                 disabled={isMessageInputEmpty}
-                className={`chat__submit-btn btn btn--primary ${
-                  isMessageInputEmpty ? "btn--disabled" : ""
-                }`}
+                className={`chat__submit-btn btn btn--primary ${isMessageInputEmpty ? 'btn--disabled' : ''}`}
               >
                 <Icon className="chat__submit-icon" icon="fe:paper-plane" />
               </button>
             ) : (
-              <Loader />
+              <MessageLoader />
             )}
           </div>
         </form>

@@ -1,8 +1,8 @@
-import "./Loader.css";
+import './MessageLoader.css';
 
-export default function Loader() {
+export default function Message() {
   return (
-    <div className="loader">
+    <div className="message-loader">
       <div className="dot dot-1"></div>
       <div className="dot dot-2"></div>
       <div className="dot dot-3"></div>

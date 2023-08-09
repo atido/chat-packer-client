@@ -1,32 +1,40 @@
-.profileDisplay {
-  height: 100vh;
-  background-color: var(--main-bg-color);
-  height: 100vh;
-  background-color: var(--main-bg-color);
+.profile-page__container {
+  margin-bottom: 3rem;
 }
 
-.profilePage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.profile-page__header {
+  margin: 1rem;
+}
+@media (min-width: 1024px) {
+  .profile-page__header {
+    margin: 2rem;
+  }
+}
+
+.profile-page__content {
+  margin: 1rem;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  .profile-page__content {
+    margin: 2rem;
+  }
 }
 
 .avatarProfile > img {
   width: 5rem;
-  margin: 3rem 0 1rem 0;
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: 100px;
 }
 
 .profileInfo {
-  width: 80%;
-  max-width: 37rem;
-  height: 70vh;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   margin-top: 1rem;
+  gap: 2rem;
 }
 @media (min-width: 768px) {
   .profileInfo {
@@ -37,10 +45,6 @@
   .profileInfo {
     font-size: 1.5rem;
   }
-}
-
-.profileInfo > div {
-  margin-bottom: 2rem;
 }
 
 .editProfileLink {

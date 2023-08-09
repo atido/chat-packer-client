@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import myaxios from "../../myaxios";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import myaxios from '../../myaxios';
 
 const AuthContext = React.createContext();
 
@@ -12,22 +12,34 @@ function AuthProviderWrapper(props) {
   const navigate = useNavigate();
 
   function storeToken(token) {
-    localStorage.setItem("authToken", token);
+    localStorage.setItem('authToken', token);
   }
 
   async function login(email, password) {
     return myaxios
       .post(`/api/users/login`, { email, password })
-      .then((response) => {
+      .then(response => {
         storeToken(response.data.authToken);
         setIsLoggedIn(true);
-        setIsLoading(false);
         return refreshUser();
       })
-      .catch((err) => {
-        console.log("error while logining");
+      .catch(err => {
         setIsLoggedIn(false);
-        setIsLoading(false);
+        setUser(false);
+        throw err;
+      });
+  }
+
+  async function signup(username, email, password) {
+    return myaxios
+      .post(`/api/users/register`, { username, email, password })
+      .then(response => {
+        storeToken(response.data.authToken);
+        setIsLoggedIn(true);
+        return refreshUser();
+      })
+      .catch(err => {
+        setIsLoggedIn(false);
         setUser(false);
         throw err;
       });
@@ -35,32 +47,28 @@ function AuthProviderWrapper(props) {
 
   async function refreshUser() {
     return myaxios
-      .get("/api/user")
-      .then((response) => {
+      .get('/api/user')
+      .then(response => {
         setUser(response.data);
         setIsLoggedIn(true);
-        setIsLoading(false);
       })
-      .catch((err) => {
-        console.log("error while refreshing the user");
+      .catch(err => {
+        console.log('error while refreshing the user');
         setUser(false);
         setIsLoggedIn(false);
+      })
+      .finally(() => {
         setIsLoading(false);
-        throw err;
       });
   }
 
   function logout() {
-    localStorage.removeItem("authToken");
+    localStorage.removeItem('authToken');
     setUser(null);
     setIsLoggedIn(false);
-    navigate("/auth/login");
+    navigate('/auth/login');
   }
   window.logout = logout;
-
-  useEffect(() => {
-    refreshUser();
-  }, []);
 
   return (
     <AuthContext.Provider
@@ -72,6 +80,7 @@ function AuthProviderWrapper(props) {
         isEnd,
         setIsEnd,
         login,
+        signup,
         refreshUser,
         logout,
       }}

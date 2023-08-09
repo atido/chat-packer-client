@@ -1,0 +1,14 @@
+.back-link {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .back-link {
+    font-size: 1.2rem;
+  }
+
+  .back-link__img {
+    width: 2rem;
+  }
+}

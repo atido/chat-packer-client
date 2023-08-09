@@ -37,7 +37,7 @@
   align-items: center;
   width: 100%;
   z-index: 1;
-  height: 6rem;
+  margin-bottom: 2rem;
 }
 
 .chat__input-zone {
@@ -45,9 +45,10 @@
 }
 
 .chat__message-zone {
+  position: relative;
   display: flex;
   align-items: center;
-  padding: 0.5rem;
+  padding: 1rem 0 1rem 1rem;
   background-color: white;
   border-radius: 6px;
   border: 1px solid #e2e8f0;
@@ -62,22 +63,28 @@
 .chat__message {
   resize: none;
   border: 0;
-  height: 1.25rem;
   background: transparent;
   width: 100%;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   outline: none;
+  overflow-y: hidden;
+  padding-right: 3rem;
+  line-height: 1.5rem;
+  font-size: 1rem;
+  max-height: 10rem;
 }
 
 .chat__submit-btn {
-  padding: 0.75rem;
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.5rem;
   transition-duration: 0.25s;
   transition-property: color, background-color;
 }
 
 .chat__submit-icon {
-  width: 1.5rem;
-  height: 1.5em;
+  width: 1rem;
 }
 
 .btn--disabled .chat__submit-icon {
@@ -85,7 +92,7 @@
 }
 
 .btn-scroll-to-bottom {
-  background: url("/arrow-down.svg") center / contain no-repeat;
+  background: url('/arrow-down.svg') center / contain no-repeat;
   z-index: 150;
 }
 .btn-scroll-to-bottom:hover {

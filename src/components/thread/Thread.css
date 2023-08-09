@@ -16,14 +16,14 @@
 .thread--user .thread__message {
   border-radius: 30px 30px 0px 30px;
   border: 1px solid #f0a944;
-  background-color: rgba(255, 251, 239, 0.75);
+  background-color: var(--message-user-color);
   margin-left: 1rem;
   color: #936117;
 }
 
 .thread--assistant .thread__message {
   border-radius: 30px 30px 30px 0px;
-  background-color: rgba(206, 163, 100, 0.85);
+  background-color: var(--message-assistant-color);
   margin-right: 1rem;
   color: white;
 }
@@ -34,6 +34,8 @@
   box-shadow: var(--shadow);
   backdrop-filter: blur(2px);
   padding: 1rem;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .thread__avatar {

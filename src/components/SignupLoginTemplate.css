@@ -1,0 +1,64 @@
+.signupLoginDisplay {
+  height: 100vh;
+  background: url('/bg.png') center/cover;
+}
+
+@media (min-width: 1024px) {
+  .signupLoginDisplay {
+    background: url('/desktopBg.png') center/cover;
+  }
+}
+
+.signupLogin__container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
+
+.heading--SignupLogin {
+  color: white;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  max-width: 20rem;
+}
+
+.heading--SignupLogin > h2 {
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .heading--SignupLogin {
+    width: 25rem;
+  }
+}
+
+.container--SignupLogin {
+  width: 20rem;
+  padding: 2rem;
+  border-radius: 12px;
+  background: rgba(249, 255, 254, 0.5);
+  box-shadow: 0px 2px 4px 0px rgba(31, 57, 55, 0.26);
+  backdrop-filter: blur(2px);
+}
+
+@media (min-width: 1024px) {
+  .container--SignupLogin {
+    width: 25rem;
+  }
+}
+
+.text--SignupLogin {
+  line-height: 1.5;
+}
+
+.btn--SignupLogin {
+  align-self: flex-start;
+}
+
+.form--SignupLogin {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
