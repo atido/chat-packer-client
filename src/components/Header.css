@@ -10,8 +10,8 @@
 
 .header .btn-group {
   position: absolute;
-  right: 0;
-  margin: 16px;
+  right: 1rem;
+  top: 1rem;
 }
 
 @media (max-width: 819px) {
@@ -22,8 +22,9 @@
   }
 
   .header .btn-group {
-    position: static;
+    position: inherit;
     margin-left: auto;
     margin-bottom: 0.3rem;
+    margin-right: 1rem;
   }
 }
