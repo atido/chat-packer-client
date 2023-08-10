@@ -1,5 +1,6 @@
 .homepage {
   position: relative;
+  height: 100vh; /*if svh is not compatible*/
   height: 100svh;
   background: url('/bg.png') center/cover;
   display: flex;
