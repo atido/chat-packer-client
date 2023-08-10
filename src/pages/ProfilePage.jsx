@@ -1,14 +1,12 @@
 import { Icon } from '@iconify/react';
-import { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../context/auth.context';
-import service from '../services/file-upload.service';
-import './ProfilePage.css';
-import '../components/Form.css';
+import { useContext, useState } from 'react';
 import BackLink from '../components/BackLink';
-import { Link } from 'react-router-dom';
 import EditableField from '../components/EditableField';
-import myaxios from '../../myaxios';
+import '../components/Form.css';
+import { AuthContext } from '../context/auth.context';
 import uploadService from '../services/file-upload.service';
+import myaxios from '../utils/myaxios';
+import './ProfilePage.css';
 
 export default function ProfilePage() {
   const { user, setUser, refreshUser } = useContext(AuthContext);

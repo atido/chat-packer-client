@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import myaxios from '../../myaxios';
+import myaxios from '../utils/myaxios';
 
 const AuthContext = React.createContext();
 

@@ -1,9 +1,8 @@
-import { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/auth.context';
-import myaxios from '../../myaxios';
+import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import EditableField from '../components/EditableField';
 import SignupLoginTemplate from '../components/SignupLoginTemplate';
+import { AuthContext } from '../context/auth.context';
 
 export default function SignupPage(props) {
   const [username, setUsername] = useState('');

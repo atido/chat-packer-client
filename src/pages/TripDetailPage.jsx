@@ -1,14 +1,13 @@
 import { Icon } from '@iconify/react';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import myaxios from '../../myaxios';
+import BackLink from '../components/BackLink';
 import AccommodationDetailCard from '../components/accommodation/AccommodationDetailCard';
 import FlightDetailCard from '../components/flight/FlightDetailCard';
-import { formatDate } from '../utils/date';
-import './TripDetailPage.css';
 import { TripsContext } from '../context/trips.context';
-import { useContext } from 'react';
-import BackLink from '../components/BackLink';
+import { formatDate } from '../utils/date';
+import myaxios from '../utils/myaxios';
+import './TripDetailPage.css';
 
 export default function TripDetailPage() {
   const [errorMessage, setErrorMessage] = useState('');

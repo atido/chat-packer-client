@@ -1,7 +1,6 @@
 import { Icon } from '@iconify/react';
-import { useEffect, useState, useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import myaxios from '../../myaxios';
 import TripCard from '../../src/components/trip/TripCard.jsx';
 import SearchBar from '../components/SearchBar';
 import { TripsContext } from '../context/trips.context';

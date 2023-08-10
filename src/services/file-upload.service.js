@@ -1,17 +1,17 @@
-import myaxios from "../../myaxios";
+import myaxios from '../utils/myaxios';
 
-const uploadImage = (file) => {
+const uploadImage = file => {
   return myaxios
-    .post("/api/user/uploadAvatar", file)
-    .then((res) => res.data)
-    .catch((err) => console.log(err.message));
+    .post('/api/user/uploadAvatar', file)
+    .then(res => res.data)
+    .catch(err => console.log(err.message));
 };
 
-const updateAvatar = (fileUrl) => {
+const updateAvatar = fileUrl => {
   return myaxios
     .put(`/api/user/avatar`, { avatar: fileUrl })
-    .then((res) => res.data)
-    .catch((err) => console.log(err.message));
+    .then(res => res.data)
+    .catch(err => console.log(err.message));
 };
 
 export default { uploadImage, updateAvatar };

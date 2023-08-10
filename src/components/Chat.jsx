@@ -1,8 +1,8 @@
 import { Icon } from '@iconify/react';
 import { useEffect, useRef, useState } from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
-import myaxios from '../../myaxios';
 import { formatMessageForConversation } from '../utils/conversation';
+import myaxios from '../utils/myaxios';
 import './Chat.css';
 import DynamicComponent from './DynamicComponent';
 import MessageLoader from './loader/MessageLoader';
@@ -24,9 +24,11 @@ export default function Chat() {
 
   useEffect(() => {
     if (textAreaRef.current) {
-      if (message === '') textAreaRef.current.style.height = textAreaRef.current.style.minHeight;
-      const scrollHeight = textAreaRef.current.scrollHeight;
-      textAreaRef.current.style.height = scrollHeight + 'px';
+      if (!message) {
+        textAreaRef.current.style.height = textAreaRef.current.style.minHeight;
+      } else {
+        textAreaRef.current.style.height = textAreaRef.current.scrollHeight + 'px';
+      }
     }
   }, [message]);
 
@@ -74,7 +76,7 @@ export default function Chat() {
               onKeyDown={handleKeyDown}
               cols="1"
               placeholder="Send a message"
-              style={{ minHeight: '24px' }}
+              style={{ height: '24px', minHeight: '24px' }}
             />
 
             {!isLoading ? (

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import myaxios from '../../myaxios';
+import React, { useEffect, useState } from 'react';
+import myaxios from '../utils/myaxios';
 
 const TripsContext = React.createContext();
 

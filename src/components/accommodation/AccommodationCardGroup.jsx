@@ -1,34 +1,6 @@
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import "../CardGroup.css";
-import AccommodationCard from "./AccommodationCard";
+import CardGroup from '../CardGroup';
+import AccommodationCard from './AccommodationCard';
 
 export default function AccommodationCardGroup({ body }) {
-  return (
-    <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      slidesPerView={3}
-      navigation
-      pagination={{ clickable: true }}
-      breakpoints={{
-        100: {
-          slidesPerView: 2,
-        },
-        640: {
-          slidesPerView: 3,
-        },
-      }}
-    >
-      {body.map((accommodation) => (
-        <SwiperSlide key={accommodation._id}>
-          <AccommodationCard accommodation={accommodation} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  );
+  return <CardGroup body={body} component={AccommodationCard} />;
 }
