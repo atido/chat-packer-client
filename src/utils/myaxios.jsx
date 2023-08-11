@@ -7,12 +7,12 @@ const myaxios = axios.create({
 
 myaxios.interceptors.request.use(config => {
   const storedToken = localStorage.getItem('authToken');
-  const conversationToken = localStorage.getItem('conversationToken');
+  const sessionToken = localStorage.getItem('sessionToken');
   if (storedToken) {
     config.headers = { ...config.headers, Authorization: `Bearer ${storedToken}` };
   }
-  if (conversationToken) {
-    config.headers = { ...config.headers, 'x-conversation-token': conversationToken };
+  if (sessionToken) {
+    config.headers = { ...config.headers, 'x-session-token': sessionToken };
   }
   return config;
 });

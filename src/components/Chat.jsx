@@ -19,7 +19,7 @@ export default function Chat() {
     myaxios
       .post(`/api/chat/events`, { type: 'INIT', message })
       .then(response => {
-        localStorage.setItem('conversationToken', response.data.token);
+        localStorage.setItem('sessionToken', response.data.sessionToken);
         setConversation(response.data.conversation);
       })
       .catch(err => setErrorMessage(err.message));
@@ -52,7 +52,7 @@ export default function Chat() {
     myaxios
       .post(`/api/chat/events`, { type: 'MESSAGE', message })
       .then(response => {
-        localStorage.setItem('conversationToken', response.data.token);
+        localStorage.setItem('sessionToken', response.data.sessionToken);
         setConversation(response.data.conversation);
       })
       .catch(err => setErrorMessage(err.message))
