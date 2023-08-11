@@ -18,7 +18,10 @@ export default function Chat() {
   useEffect(() => {
     myaxios
       .post(`/api/chat/events`, { type: 'INIT', message })
-      .then(response => setConversation(response.data.conversation))
+      .then(response => {
+        localStorage.setItem('conversationToken', response.data.token);
+        setConversation(response.data.conversation);
+      })
       .catch(err => setErrorMessage(err.message));
   }, []);
 
