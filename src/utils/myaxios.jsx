@@ -7,10 +7,13 @@ const myaxios = axios.create({
 
 myaxios.interceptors.request.use(config => {
   const storedToken = localStorage.getItem('authToken');
+  const conversationToken = localStorage.getItem('conversationToken');
   if (storedToken) {
-    config.headers = { Authorization: `Bearer ${storedToken}` };
+    config.headers = { ...config.headers, Authorization: `Bearer ${storedToken}` };
   }
-  config.headers = { ...config.headers, 'X-conversation-token': `Testing` };
+  if (conversationToken) {
+    config.headers = { ...config.headers, 'x-conversation-token': conversationToken };
+  }
   return config;
 });
 
@@ -18,20 +21,19 @@ myaxios.interceptors.response.use(
   response => response,
   error => {
     let message = '';
-
     if (error.response) {
       message = error.response.data.message || 'Functional error.';
-      console.log(message, {
+      console.error(message, {
         data: error.response.data,
         status: error.response.status,
         headers: error.response.headers,
       });
     } else if (error.request) {
       message = 'Network error.';
-      console.log(message, error.request);
+      console.error(message, error.request);
     } else {
       message = 'An error occurred. Please try again later.';
-      console.log(message, error.message);
+      console.error(message, error.message);
     }
     return Promise.reject({ ...error, message });
   }

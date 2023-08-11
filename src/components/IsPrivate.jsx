@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import PageLoader from './loader/PageLoader';
@@ -10,7 +10,6 @@ function IsPrivate({ children }) {
   if (isLoading) return <PageLoader />;
 
   if (!isLoggedIn) {
-    console.log('is not logged in > is loading', isLoading);
     // If the user is not logged in
     return <Navigate to="/auth/login" />;
   } else {

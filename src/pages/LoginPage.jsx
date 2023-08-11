@@ -1,15 +1,15 @@
 import { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/auth.context';
+import { useNavigate } from 'react-router-dom';
 import EditableField from '../components/EditableField';
 import SignupLoginTemplate from '../components/SignupLoginTemplate';
+import { AuthContext } from '../context/auth.context';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
   const navigate = useNavigate();
+
   const { login } = useContext(AuthContext);
 
   const handleSubmit = e => {

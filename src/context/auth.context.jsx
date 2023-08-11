@@ -16,7 +16,7 @@ function AuthProviderWrapper(props) {
   }
 
   async function login(email, password) {
-    myaxios
+    return myaxios
       .post(`/api/users/login`, { email, password })
       .then(response => {
         storeToken(response.data.authToken);
@@ -31,7 +31,7 @@ function AuthProviderWrapper(props) {
   }
 
   async function signup(username, email, password) {
-    myaxios
+    return myaxios
       .post(`/api/users/register`, { username, email, password })
       .then(response => {
         storeToken(response.data.authToken);
@@ -46,7 +46,7 @@ function AuthProviderWrapper(props) {
   }
 
   async function refreshUser() {
-    myaxios
+    return myaxios
       .get('/api/user')
       .then(response => {
         setUser(response.data);

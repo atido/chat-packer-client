@@ -48,7 +48,10 @@ export default function Chat() {
 
     myaxios
       .post(`/api/chat/events`, { type: 'MESSAGE', message })
-      .then(response => setConversation(response.data))
+      .then(response => {
+        localStorage.setItem('conversationToken', response.data.token);
+        setConversation(response.data.conversation);
+      })
       .catch(err => setErrorMessage(err.message))
       .finally(() => setIsLoading(false));
   };
