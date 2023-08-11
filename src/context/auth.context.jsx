@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import myaxios from '../utils/myaxios';
 
@@ -16,12 +16,12 @@ function AuthProviderWrapper(props) {
   }
 
   async function login(email, password) {
-    return myaxios
+    myaxios
       .post(`/api/users/login`, { email, password })
       .then(response => {
         storeToken(response.data.authToken);
         setIsLoggedIn(true);
-        return refreshUser();
+        refreshUser();
       })
       .catch(err => {
         setIsLoggedIn(false);
@@ -31,12 +31,12 @@ function AuthProviderWrapper(props) {
   }
 
   async function signup(username, email, password) {
-    return myaxios
+    myaxios
       .post(`/api/users/register`, { username, email, password })
       .then(response => {
         storeToken(response.data.authToken);
         setIsLoggedIn(true);
-        return refreshUser();
+        refreshUser();
       })
       .catch(err => {
         setIsLoggedIn(false);
@@ -46,7 +46,7 @@ function AuthProviderWrapper(props) {
   }
 
   async function refreshUser() {
-    return myaxios
+    myaxios
       .get('/api/user')
       .then(response => {
         setUser(response.data);
@@ -61,6 +61,10 @@ function AuthProviderWrapper(props) {
         setIsLoading(false);
       });
   }
+
+  useEffect(() => {
+    if (localStorage.getItem('authToken')) refreshUser();
+  }, []);
 
   function logout() {
     localStorage.removeItem('authToken');

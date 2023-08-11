@@ -4,10 +4,7 @@ import { AuthContext } from '../context/auth.context';
 import PageLoader from './loader/PageLoader';
 
 function IsPrivate({ children }) {
-  const { isLoggedIn, isLoading, refreshUser } = useContext(AuthContext);
-  useEffect(() => {
-    refreshUser();
-  }, []);
+  const { isLoggedIn, isLoading } = useContext(AuthContext);
 
   // If the authentication is still loading
   if (isLoading) return <PageLoader />;
