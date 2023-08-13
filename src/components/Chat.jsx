@@ -6,6 +6,7 @@ import myaxios from '../utils/myaxios';
 import './Chat.css';
 import DynamicComponent from './DynamicComponent';
 import MessageLoader from './loader/MessageLoader';
+import PageLoader from './loader/PageLoader';
 
 export default function Chat() {
   const [message, setMessage] = useState('');
@@ -58,44 +59,46 @@ export default function Chat() {
 
   return (
     <>
-      <div className="chat">
-        {conversation && (
-          <ScrollToBottom className="chat__container" followButtonClassName="btn-scroll-to-bottom">
-            {conversation?.map(el => (
-              <DynamicComponent key={el.id} element={el} />
-            ))}
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
-          </ScrollToBottom>
-        )}
-      </div>
-      <div className="chat__footer">
-        <form onSubmit={handleSubmit} className="chat__input-zone">
-          <div className="chat__message-zone">
-            <textarea
-              className="chat__message"
-              ref={textAreaRef}
-              value={message}
-              onChange={e => setMessage(e.target.value)}
-              onKeyDown={handleKeyDown}
-              cols="1"
-              placeholder="Send a message"
-              style={{ height: '24px', minHeight: '24px' }}
-            />
-
-            {!isLoading ? (
-              <button
-                type="submit"
-                disabled={isMessageInputEmpty}
-                className={`chat__submit-btn btn btn--primary ${isMessageInputEmpty ? 'btn--disabled' : ''}`}
-              >
-                <Icon className="chat__submit-icon" icon="fe:paper-plane" />
-              </button>
-            ) : (
-              <MessageLoader />
-            )}
+      {conversation.length > 0 || errorMessage ? (
+        <>
+          <div className="chat">
+            <ScrollToBottom className="chat__container" followButtonClassName="btn-scroll-to-bottom">
+              {conversation.length > 0 && conversation.map(el => <DynamicComponent key={el.id} element={el} />)}
+              {errorMessage && <p className="error-message">{errorMessage}</p>}
+            </ScrollToBottom>
           </div>
-        </form>
-      </div>
+          <div className="chat__footer">
+            <form onSubmit={handleSubmit} className="chat__input-zone">
+              <div className="chat__message-zone">
+                <textarea
+                  className="chat__message"
+                  ref={textAreaRef}
+                  value={message}
+                  onChange={e => setMessage(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  cols="1"
+                  placeholder="Send a message"
+                  style={{ height: '24px', minHeight: '24px' }}
+                />
+
+                {!isLoading ? (
+                  <button
+                    type="submit"
+                    disabled={isMessageInputEmpty}
+                    className={`chat__submit-btn btn btn--primary ${isMessageInputEmpty ? 'btn--disabled' : ''}`}
+                  >
+                    <Icon className="chat__submit-icon" icon="fe:paper-plane" />
+                  </button>
+                ) : (
+                  <MessageLoader />
+                )}
+              </div>
+            </form>
+          </div>
+        </>
+      ) : (
+        <PageLoader />
+      )}
     </>
   );
 }
