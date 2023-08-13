@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   margin-block: 0.5rem;
+  list-style-position: inside;
 }
 .thread--user {
   justify-content: end;
