@@ -15,14 +15,19 @@ export default function Chat() {
   const textAreaRef = useRef(null);
   const isMessageInputEmpty = message.trim() === '';
 
-  useEffect(() => {
+  const sendEvent = event => {
     myaxios
-      .post(`/api/chat/events`, { type: 'INIT', message })
+      .post(`/api/chat/events`, event)
       .then(response => {
         localStorage.setItem('sessionToken', response.data.sessionToken);
         setConversation(response.data.conversation);
       })
-      .catch(err => setErrorMessage(err.message));
+      .catch(err => setErrorMessage(err.message))
+      .finally(() => setIsLoading(false));
+  };
+
+  useEffect(() => {
+    sendEvent({ type: 'INIT' });
   }, []);
 
   useEffect(() => {
@@ -48,15 +53,7 @@ export default function Chat() {
     setIsLoading(true);
     setMessage('');
     setErrorMessage('');
-
-    myaxios
-      .post(`/api/chat/events`, { type: 'MESSAGE', message })
-      .then(response => {
-        localStorage.setItem('sessionToken', response.data.sessionToken);
-        setConversation(response.data.conversation);
-      })
-      .catch(err => setErrorMessage(err.message))
-      .finally(() => setIsLoading(false));
+    sendEvent({ type: 'MESSAGE', message });
   };
 
   return (
