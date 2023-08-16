@@ -8,6 +8,7 @@ import { TripsContext } from '../context/trips.context';
 import { formatDate } from '../utils/date';
 import myaxios from '../utils/myaxios';
 import './TripDetailPage.css';
+import Map from '../components/Map';
 
 export default function TripDetailPage() {
   const [errorMessage, setErrorMessage] = useState('');
@@ -73,6 +74,7 @@ export default function TripDetailPage() {
               <AccommodationDetailCard accommodation={trip.accommodation} departureDate={trip.tripInfo.departureDate} returnDate={trip.tripInfo.returnDate} />
             </section>
           )}
+          <Map address={trip.tripInfo.destinationCity}/>
         </div>
       )}
     </>

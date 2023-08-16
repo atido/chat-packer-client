@@ -108,9 +108,10 @@
   margin-top: 0.5rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .tripDetail__headingLinks .btn--delete {
     font-size: 1.2rem;
+    margin-top: auto;
   }
 }
 

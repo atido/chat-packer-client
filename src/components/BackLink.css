@@ -3,8 +3,8 @@
   align-items: center;
 }
 
-@media (min-width: 1024px) {
-  .back-link {
+@media (min-width: 768px) {
+  .back-link__text {
     font-size: 1.2rem;
   }
 
