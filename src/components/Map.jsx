@@ -12,19 +12,19 @@ import { useEffect, useRef, useState } from 'react'
 
 import { Icon } from '@iconify/react'
 
-import axios from "axios"
+import myaxios from "axios"
 
 function Map({address}) {
   const [coordinates, setCoordinates] = useState(null);
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: import.meta.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: import.meta.env.VITE_REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries: ['places'],
   })
   
   useEffect(() => {
-    const geocodingAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${import.meta.env.REACT_APP_GOOGLE_MAPS_API_KEY}`;
-    axios(geocodingAPI)
+    const geocodingAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${import.meta.env.VITE_REACT_APP_GOOGLE_MAPS_API_KEY}`;
+    myaxios(geocodingAPI)
     .then(data => {
       if (data.status === 'OK') {
         setCoordinates(data.results[0].geometry.location);
