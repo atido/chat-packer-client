@@ -34,14 +34,24 @@
 }
 
 .mapBar {
+    display: flex;
+    flex-direction: column;
     width: 92%;
-    padding: 1rem;
+    padding: 1rem 0 1rem 0;
     margin: 0 auto;
-    
+}
+@media (min-width: 1024px) {
+    .mapBar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+    }
 }
 
 .mapSearchBar {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     gap: 16px;
 }
@@ -58,6 +68,16 @@
 .mapBtnGp {
     display: flex;
     gap: 16px;
+    justify-content: space-between;
+}
+@media (min-width: 768px) {
+    .mapSearchBar {
+        flex-direction: row;
+    }
+    .mapInput {
+        flex: 1;
+        margin-right: 2rem;
+    }
 }
 
 .clearRouteBtn {
@@ -71,8 +91,18 @@
 .mapInfoBar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 32px;
     margin-top: 32px;
+    font-size: 1.2rem;
+}
+.mapInfoBar div {
+    margin-right: 1rem;
+}
+@media(min-width: 1024px) {
+    .mapInfoBar {
+        margin-top: 0;
+    }
 }
 
 .recenterBtn {

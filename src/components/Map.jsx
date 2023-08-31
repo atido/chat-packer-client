@@ -84,7 +84,7 @@ function Map({ address }) {
 
           <div className="mapBtnGp">
             <button className="btn btn--primary" type="submit" onClick={calculateRoute}>
-              Calculate Route
+              Check driving route
             </button>
             <button onClick={clearRoute}>
               <Icon className="clearRouteBtn" icon={'ic:baseline-close'} />

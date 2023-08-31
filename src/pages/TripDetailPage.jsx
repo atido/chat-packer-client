@@ -74,6 +74,7 @@ export default function TripDetailPage() {
               <AccommodationDetailCard accommodation={trip.accommodation} departureDate={trip.tripInfo.departureDate} returnDate={trip.tripInfo.returnDate} />
             </section>
           )}
+          <div className="detail-card__title"><Icon className="trip-detail__icon" icon={"carbon:map"}></Icon><h2>Map</h2></div>
           <Map address={trip.tripInfo.destinationCity}/>
         </div>
       )}
