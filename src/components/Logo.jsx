@@ -7,7 +7,7 @@ export default function Logo({ isSmall }) {
     <Link to="/" className="hyperlink--no-decoration">
       <div className="logo">
         <Tag>Chat Packer</Tag>
-        <img className={`logo__img ${isSmall ? "logo--small" : ""}`} src="/logo.svg" alt="logo" />
+        {/* <img className={`logo__img ${isSmall ? "logo--small" : ""}`} src="/logo.svg" alt="logo" /> */}
       </div>
     </Link>
   );
